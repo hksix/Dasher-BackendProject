@@ -6,7 +6,7 @@ const db = require('../db');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   db.query(`
-    select * from cd.users;
+    select * from members;
   `)
     .then((result)=>{
       res.render('index', {

@@ -11,7 +11,6 @@ router.get('/', function(req, res, next) {
     .then((result)=>{
       res.render('index', {
         members:result
-        
       });
     });
   });

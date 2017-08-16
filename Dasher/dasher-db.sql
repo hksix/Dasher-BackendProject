@@ -35,63 +35,22 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: -
+-- Name: members; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE users (
-    id integer NOT NULL,
-    "Name" text NOT NULL
+CREATE TABLE members (
+    name character varying(200) NOT NULL,
+    widgets text
 );
 
 
 --
--- Name: cd.users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Data for Name: members; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE "cd.users_id_seq"
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: cd.users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE "cd.users_id_seq" OWNED BY users.id;
-
-
---
--- Name: users id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('"cd.users_id_seq"'::regclass);
-
-
---
--- Name: cd.users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
---
-
-SELECT pg_catalog.setval('"cd.users_id_seq"', 1, false);
-
-
---
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
---
-
-COPY users (id, "Name") FROM stdin;
-1	Test
+COPY members (name, widgets) FROM stdin;
+Test	Weather
 \.
-
-
---
--- Name: users cd.users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY users
-    ADD CONSTRAINT "cd.users_pkey" PRIMARY KEY (id);
 
 
 --

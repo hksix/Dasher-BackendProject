@@ -3,11 +3,14 @@
   <head>
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
+
   </head>
   <body>
     <header>
       <div class="dropdown">
-        <button class="dropbtn">Menu</button>
+        <button  class="dropbtn">Menu</button>
         <div class="dropdown-content">
           <a href="/">Dashboard</a>
           <a href="/users">Profile Settings</a>
@@ -23,33 +26,36 @@
     <div class='widget-rows'>
       <div class='three-widget-row'>
         <div>Widget box 1
+          <div class='widget'></div>
           <div class="dropdown">
-          <button class="dropbtn">+</button>
+          <button type='button' class="dropbtn">+</button>
             <div class="dropdown-content">
-              <a href="/">Clock</a>
-              <a href="/users">Weather</a>
-              <a href="/facilities">News</a>
-              <a href="/addUser">Message</a>
+              <a type='button' onclick="clock(this)" class='clock'>Clock</a>
+              <a type='button' onclick="weather(this)" class='weather'>Weather</a>
+              <a type='button' onclick="news()">News</a>
+              <a type='button' onclick="message()">Message</a>
             </div>
           </div>
         </div>
         <div>Widget box 2
+          <div class='widget'></div>
           <div class="dropdown">
           <button class="dropbtn">+</button>
             <div class="dropdown-content">
-              <a href="/">Clock</a>
-              <a href="/users">Weather</a>
+              <a type='button' onclick="clock(this)" class='clock'>Clock</a>
+              <a type='button' onclick="weather(this)" class='weather'>Weather</a>
               <a href="/facilities">News</a>
               <a href="/addUser">Message</a>
             </div>
           </div>
         </div>
         <div>Widget box 3
+          <div class='widget'></div>
           <div class="dropdown">
           <button class="dropbtn">+</button>
             <div class="dropdown-content">
-              <a href="/">Clock</a>
-              <a href="/users">Weather</a>
+              <a type='button' onclick="clock(this)" class='clock'>Clock</a>
+              <a type='button' onclick="weather(this)" class='weather'>Weather</a>
               <a href="/facilities">News</a>
               <a href="/addUser">Message</a>
             </div>
@@ -59,22 +65,24 @@
     </div>
     <div class='widget-rows-long'>
         <div class='two-widget-column'> Widget box 4 long
+          <div class='widget'></div>
           <div class="dropdown">
           <button class="dropbtn">+</button>
             <div class="dropdown-content">
-              <a href="/">Clock</a>
-              <a href="/users">Weather</a>
+              <a type='button' onclick="clock(this)" class='clock'>Clock</a>
+              <a type='button' onclick="weather(this)" class='weather'>Weather</a>
               <a href="/facilities">News</a>
               <a href="/addUser">Message</a>
             </div>
           </div>
         </div>
         <div class='two-widget-column'> Widget box 5 long
+          <div class='widget'></div>
           <div class="dropdown">
           <button class="dropbtn">+</button>
             <div class="dropdown-content">
-              <a href="/">Clock</a>
-              <a href="/users">Weather</a>
+              <a type='button' onclick="clock(this)" class='clock'>Clock</a>
+              <a type='button' onclick="weather(this)" class='weather'>Weather</a>
               <a href="/facilities">News</a>
               <a href="/addUser">Message</a>
             </div>
@@ -85,33 +93,36 @@
     <div class='widget-rows'>
       <div class='three-widget-row'> 
         <div>Widget box 6
+          <div class='widget'></div>
           <div class="dropdown">
           <button class="dropbtn">+</button>
             <div class="dropdown-content">
-              <a href="/">Clock</a>
-              <a href="/users">Weather</a>
+              <a type='button' onclick="clock(this)" class='clock'>Clock</a>
+              <a type='button' onclick="weather(this)" class='weather'>Weather</a>
               <a href="/facilities">News</a>
               <a href="/addUser">Message</a>
             </div>
           </div>
         </div>
         <div>Widget box 7
+          <div class='widget'></div>
           <div class="dropdown">
           <button class="dropbtn">+</button>
             <div class="dropdown-content">
-              <a href="/">Clock</a>
-              <a href="/users">Weather</a>
+              <a type='button' onclick="clock(this)" class='clock'>Clock</a>
+              <a type='button' onclick="weather(this)" class='weather'>Weather</a>
               <a href="/facilities">News</a>
               <a href="/addUser">Message</a>
             </div>
           </div>
         </div>
         <div>Widget box 8
+          <div class='widget'></div>
           <div class="dropdown">
           <button class="dropbtn">+</button>
             <div class="dropdown-content">
-              <a href="/">Clock</a>
-              <a href="/users">Weather</a>
+              <a type='button' onclick="clock(this)" class='clock'>Clock</a>
+              <a type='button' onclick="weather(this)" class='weather'>Weather</a>
               <a href="/facilities">News</a>
               <a href="/addUser">Message</a>
             </div>
@@ -119,5 +130,9 @@
         </div>
       </div>
     </div>
+    <script src="javascripts/main.js">
+    </script>
   </body>
+
+
 </html>

@@ -5,13 +5,13 @@ const db = require('../db');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  db.query(`
-    select * from users;
-  `)
-    .then((result)=>{
+  // db.query(`
+  //   select * from users;
+  // `)
+    // .then((result)=>{
       res.render('index', {
-        members:result
+        members:[]
       });
-    });
+    // });
   });
 module.exports = router;

@@ -119,7 +119,18 @@ header > .dropdown> .dropbtn {
 
 .two-widget-column{
   display: flex;
-  height: 60%;
+  height: 80%;
+  margin: 0 0 20px 0;
+  flex-direction: column;
+  border: 1px solid white;
+  justify-content: center;
+  text-align: center;
+  align-content: flex-end;
+}
+
+.widget-rows-long{
+  display: flex;
+  height: 30%;
   margin: 20px 0 20px 0;
   /* width: 20%; */
   flex-direction: column;
@@ -127,6 +138,10 @@ header > .dropdown> .dropbtn {
   justify-content: center;
   text-align: center;
   align-content: flex-end;
+}
+.two-widget-column > .flip{
+  width: 100%;
+  height: 100px;
 }
 
 .add-btn{
@@ -242,4 +257,8 @@ li {
 .currently {
   margin: 5px 20px;
 }
-
+/* widget card toggle classes */
+.back{
+  background-color: purple;
+  color: blue;
+}

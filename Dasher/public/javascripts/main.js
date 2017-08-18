@@ -1,6 +1,12 @@
+// widget card toggle handler //
+$(function(){
+    $(".flip").flip({
+        trigger: 'click'
+    });
+});
 
 function clock(elt) {
-    let div = elt.parentElement.parentElement.parentElement.children[0]
+    let div = elt.parentElement.parentElement.parentElement.parentElement;
     console.log(div);
     elt.addEventListener("click", function(){
         // div.style.display = "block";
@@ -28,7 +34,7 @@ function clock(elt) {
       startTime();  
 }
 function weather(elt){
-    let div = elt.parentElement.parentElement.parentElement.children[0]
+    let div = elt.parentElement.parentElement.parentElement.parentElement;
     console.log(div);
     elt.addEventListener("click", function(){
         // div.style.display = "block";
@@ -37,24 +43,43 @@ function weather(elt){
         getWeather(); //Get the initial weather.
         setInterval(getWeather, 600000);  
     });
-       function getWeather(){
-        $.simpleWeather({
-      location: 'Atlanta, GA',
-      woeid: '',
-      unit: 'f',
-      success: function(weather) {
-        html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
-        html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
-        html += '<li class="currently">'+weather.currently+'</li>';
-        html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
-    
-        div.innerHTML = (html);
-      },
-      error: function(error) {
-        div.innerHTML = ('<p>'+error+'</p>');
-      }
+        function getWeather(){
+            $.simpleWeather({
+          location: 'Atlanta, GA',
+          woeid: '',
+          unit: 'f',
+          success: function(weather) {
+            html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+            html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
+            html += '<li class="currently">'+weather.currently+'</li>';
+            html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
+        
+            div.innerHTML = (html);
+          },
+          error: function(error) {
+            div.innerHTML = ('<p>'+error+'</p>');
+          }
+        });
+    }
+}
+function rss(elt){
+    let div = elt.parentElement.parentElement.parentElement.parentElement;
+    console.log(div);
+    elt.addEventListener("click", function(){
+        
     });
-}
+    function getNews(){
+        // div.style.display = "block";
+        // var news = $('<iframe><script src = "rss.bloople.net/?url=http%3A%2F%2Frss.cnn.com%2Frss%2Fcnn_topstories.rss&showtitle=false&type=js"></script></iframe>');
+        
+        
+         div.append($("<iframe />", {
+            "script"  : true,
+            "src" : "rss.bloople.net/?url=http%3A%2F%2Frss.cnn.com%2Frss%2Fcnn_topstories.rss&showtitle=false&type=js"
+            
+           }));
+        //    div.append(news);
 
+    }
+    getNews();
 }
-

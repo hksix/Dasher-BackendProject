@@ -1,3 +1,3 @@
 app.get('/', function (req, res) {
-    res.render('main');
+    res.render('layout');
 });

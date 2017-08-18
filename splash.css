@@ -25,7 +25,8 @@ html, body {
 
 h1 {
     position: relative;
-    margin-top: 200px;
+    margin-top: -20px;
+    margin-bottom: 5px;
     color: white;
     z-index: 1;
     opacity: 0.65;
@@ -36,7 +37,8 @@ h1 {
 
 h2 {
     position: relative;
-    /* margin-top: 200px; */
+    margin-top: 15px;
+    margin-bottom: 5px;
     color: white;
     z-index: 1;
     opacity: 0.65;
@@ -57,4 +59,15 @@ h2 {
 a {
     text-decoration: none;
     
+}
+
+.dasher-logo {
+    position: relative;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    z-index: 1;
+    /* color: black; */
+    width: 250px;
+    /* opacity: 0.65; */
+
 }

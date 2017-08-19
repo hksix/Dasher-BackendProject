@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
   if (req.isAuthenticated()) {
     user = JSON.stringify(req.user, null, 4);
   }
-  res.render('auth', { title: 'Dasher', user:  user});
+  res.render('auth', { title: 'Dasher', users:  users});
 });
 
 router.get('/auth/github', passport.authenticate('github'));

@@ -1,3 +1,10 @@
+function findWidget(num){
+    if (num == 1 ){
+       return clock();
+    }
+}
+
+
 // widget card toggle handler //
 $(function(){
     $(".flip").flip({

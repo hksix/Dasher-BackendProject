@@ -26,7 +26,17 @@
   </header> --}}
   {{!-- {{{body}}} --}}
 
+  {{{body}}}
+
+  {{#each dashsettings}}
+  <ul>
+    <li>{{userid}}</li>
+    <li>{{widgetid}}</li>
+    <li>{{placement}}</li>
+  </ul>
+  {{!--<p>{{userid}}</p>--}}
   
+  {{/each}}
   
 
 <div class='widget-rows'>

@@ -4,6 +4,16 @@ function findWidget(num){
     }
 }
 
+function findPlacement(placementNum){
+
+}
+
+
+
+function drawWidgetInBox()
+
+
+
 
 // widget card toggle handler //
 $(function(){

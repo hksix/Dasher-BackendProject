@@ -4,8 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var hbs = require('express-handlebars');
 
+var hbs = require('express-handlebars');
+const db = require('./db');
 var index = require('./routes/index');
 var dashboard = require('./routes/dashboard');
 var users = require('./routes/users');
@@ -15,6 +16,8 @@ var app = express();
 
 // view engine setup for handlebars
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts'}));
+
+// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -22,27 +25,56 @@ app.set('view engine', 'hbs');
 require('dotenv').config();
 const passport = require('passport');
 var GithubStrategy = require('passport-github2').Strategy;
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function(user, done) {
+  // placeholder for custom user serialization
+  // null is for errors
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done)=> {
+  db.query('users').where({id}).first()
+  .then((user) => { done(null, user); })
+  .catch((err) => { done(err,null); });
+  });
+
 
 passport.use(new GithubStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
     callbackURL: "http://localhost:3000/auth/github/callback"
+  
   },
   function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate({ githubId: profile.id }, function (err, user) {
-      return done(err, user);
-    });
-        // placeholder for translating profile into your own custom user object.
-    //     // for now we will just use the profile object returned by GitHub
+    done(null,profile);
+    console.log(profile);
+    console.log("profileid" ,profile.id)
+    // profil gives you an object with 
+    // id: '29579724',
+    // displayName: 'Hamza Haseeb',
+    // username: 'hksix',
   }
 ));
+
+
+
+
+//     User.findOrCreate({ githubId: profile.id }, function (err, user) {
+//       return done(err, user);
+//     });
+//         // placeholder for translating profile into your own custom user object.
+//     //     // for now we will just use the profile object returned by GitHub
+//   }
+// ));
 
 
 app.get('/auth/github',
 passport.authenticate('github', { scope: [ 'user:email' ] }));
 
 app.get('/auth/github/callback', 
-passport.authenticate('github', { failureRedirect: '/login' }),
+passport.authenticate('github', { failureRedirect: '/' }),
 function(req, res) {
   // Successful authentication, redirect home.
   res.redirect('/dashboard');
@@ -57,20 +89,8 @@ app.use(session({
   saveUninitialized: true
 
 }));
-app.use(passport.initialize());
-app.use(passport.session());
-passport.serializeUser(function(user, done) {
-  // placeholder for custom user serialization
-  // null is for errors
-  done(null, user);
-});
 
-passport.deserializeUser(function(user, done) {
-  // placeholder for custom user deserialization.
-  // maybe you are going to get the user from mongo by id?
-  // null is for errors
-  done(null, user);
-});
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -79,6 +99,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', index);
 app.use('/users', users);

@@ -1,19 +1,3 @@
-function findWidget(num){
-    if (num == 1 ){
-       return clock();
-    }
-}
-
-function findPlacement(placementNum){
-
-}
-
-
-
-function drawWidgetInBox()
-
-
-
 
 // widget card toggle handler //
 $(function(){
@@ -22,6 +6,43 @@ $(function(){
     });
 });
 
+
+
+// this function accepts a widgetID as an argument, and returns the widget based on that ID#
+// function findWidget(widgetId){
+//     if (widgetId == 1 ){
+//        return clock();
+//     } else if (widgetId == 2){
+//         return weather();
+//     } else if (widgetId == 3){
+//         return rss();
+//     } else if (widgetId == 4){
+//         return greeting();
+//     } else
+//         return widgetError();   
+// }
+
+
+// this function accepts an argument of placementID(based off of where the user has chosen the widget)
+function findPlacement(placementNum){
+
+}
+
+
+// this function draws the chosen widget to the appropriate placement box on the screen
+// function drawWidgetToBox(){
+//     findWidget();
+//     findPlacement();
+    
+
+// }
+
+
+
+
+
+
+// clock widget
 function clock(elt) {
     let div = elt.parentElement.parentElement.parentElement.parentElement;
     console.log(div);
@@ -50,6 +71,9 @@ function clock(elt) {
       }
       startTime();  
 }
+
+
+// weather widget
 function weather(elt){
     let div = elt.parentElement.parentElement.parentElement.parentElement;
     console.log(div);
@@ -79,6 +103,8 @@ function weather(elt){
         });
     }
 }
+
+// news widget
 function rss(elt){
     let div = elt.parentElement.parentElement.parentElement.parentElement;
     console.log(div);
@@ -99,4 +125,15 @@ function rss(elt){
 
     }
     getNews();
+}
+
+// greeting widget
+
+
+
+
+
+// widget choice error
+function widgetError(){
+    print('Please choose a valid widget option')
 }

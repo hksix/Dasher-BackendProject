@@ -1,25 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-const db = require('../db');
-
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   db.query(`
-//     select * from users;
-//   `)
-//     .then((result)=>{
-//       res.render('dashboard', {
-//         dashsettings:result
-//       });
-//     });
-//   });
-
-
-
+const db = require('../db')
 
 // getting & posting user widget preferences
-
 router.get('/', function(req, res, next){
     db.query(`
     select * from dashsettings where userid > 0 order by userid;

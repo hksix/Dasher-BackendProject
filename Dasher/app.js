@@ -32,11 +32,14 @@ app.use(passport.session());
 passport.serializeUser(function(user, done) {
   // placeholder for custom user serialization
   // null is for errors
-  done(null, user.id);
+  log.debug("serialize ", user);
+  done(null, user.userid);
 });
 
 passport.deserializeUser((id, done)=> {
-  db.query('users').where({id}).first()
+  db.one(`SELECT userid,username, nickname FROM users
+  where userid = $1,[id]
+`)
   .then((user) => { done(null, user); })
   .catch((err) => { done(err,null); });
   });
@@ -49,7 +52,13 @@ passport.use(new GithubStrategy({
   
   },
   function(accessToken, refreshToken, profile, done) {
+    return db.one(`SELECT userid,username,nickname
+    FROM users
+    Where userid=$1 AND username=$2
+  `).then((results)=>{
     done(null,profile);
+  });
+  
     console.log(profile);
     console.log("profileid" ,profile.id)
     // profil gives you an object with 
@@ -79,6 +88,10 @@ passport.authenticate('github', { failureRedirect: '/' }),
 function(req, res) {
   // Successful authentication, redirect home.
   res.redirect('/dashboard');
+});
+app.post('/', passport.authenticate('github'), (req, resp)=>{
+  log.debug(req.user);
+  resp.send(req.user);
 });
 
 

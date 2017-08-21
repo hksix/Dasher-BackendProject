@@ -1,3 +1,5 @@
+// var fc = require('flipclock');
+
 // widget card toggle handler //
 $(function(){
     $(".flip").flip({
@@ -5,10 +7,28 @@ $(function(){
     });
 });
 
+function getClockPlacement(){
+    
+        $('#widget1').html('<div class="yourclock"></div>');
+}
+getClockPlacement();
+
+// FlipClock initialization  
+var ServerTime = $('#my_time').val();
+var d = new Date();
+var n = d.getHours();
+var diff = ServerTime - n;
+yourclock = $('.yourclock').FlipClock(diff,{  
+    clockFace: 'TwentyFourHourClock'  
+});  
+
+
+
+
 function clock(elt) {
     // let div = elt.parentElement.parentElement.parentElement.parentElement;
-    //let div = elt.parentElement.previousSibling.previousSibling;
-    let div = elt.parentElement.previousSibling.previousSibling.previousSibling.nextSibling; 
+    let div = elt.parentElement.previousSibling.previousSibling;
+    // let div = elt.parentElement.previousSibling.previousSibling.previousSibling.nextSibling; 
     
     console.log(div);
     elt.addEventListener("click", function(){
@@ -38,8 +58,8 @@ function clock(elt) {
 }
 function weather(elt){
     console.log('weather');
-    let div = elt.parentElement.previousSibling.previousSibling.previousSibling.nextSibling; 
-    //let div = elt.parentElement.previousSibling.previousSibling;
+    // let div = elt.parentElement.previousSibling.previousSibling.previousSibling.nextSibling; 
+    let div = elt.parentElement.previousSibling.previousSibling;
     console.log(div);
     elt.addEventListener("click", function(){
         // div.style.display = "block";
@@ -88,3 +108,6 @@ function rss(elt){
     }
     getNews();
 }
+
+
+//need a module.exports here so we can require these functions withn dashboard.js

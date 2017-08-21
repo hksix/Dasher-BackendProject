@@ -9,7 +9,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  /* color: #00B7FF; */
 }
 
 header{
@@ -245,13 +245,13 @@ ul {
   padding: 0;
 }
 
-li {
+/* li {
   background: #fff;
   background: rgba(22, 137, 177, 0.90);
   padding: 15px;
   display: inline-block;
   border-radius: 5px;
-}
+} */
 
 .currently {
   margin: 5px 20px;
@@ -312,3 +312,6 @@ li {
   height: 20%;
 }
 
+.your-clock {
+  border: none;
+}

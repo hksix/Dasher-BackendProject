@@ -8,13 +8,15 @@
     <li>timezone: {{timezone}}</li>
   </ul>
   {{/each}}
+  
 <div class="container">
     {{#each dashsettings}}
       <div class="flip" id='box{{placement}}'>
-        <div class="front">
+        <div class="front"  id='widget{{widgetid}}'>
             <div class='widget'>
                 widgetid {{widgetid}}
-
+                
+                {{!-- <h1>{{printItems widgetid}}</h1> --}}
             </div>
          
         </div>
@@ -42,5 +44,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="/javascripts/jquery.flip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
 <script src="/javascripts/main.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
+<script src="https://use.fontawesome.com/1092cb84a3.js"></script>

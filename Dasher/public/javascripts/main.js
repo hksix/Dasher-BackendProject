@@ -7,7 +7,8 @@ $(function(){
 
 function clock(elt) {
     // let div = elt.parentElement.parentElement.parentElement.parentElement;
-    let div = elt.parentElement.previousSibling.previousSibling;
+    //let div = elt.parentElement.previousSibling.previousSibling;
+    let div = elt.parentElement.previousSibling.previousSibling.previousSibling.nextSibling; 
     
     console.log(div);
     elt.addEventListener("click", function(){
@@ -20,7 +21,7 @@ function clock(elt) {
         return i;
       }
       
-      function startTime() {
+      function startTime() { //this causes the clock to reappear automatically even when a different widget is selected
         var today = new Date();
         var h = today.getHours();
         var m = today.getMinutes();
@@ -36,12 +37,13 @@ function clock(elt) {
       startTime();  
 }
 function weather(elt){
-    // let div = elt.parentElement.parentElement.parentElement.parentElement;
-    let div = elt.parentElement.previousSibling.previousSibling;
-    // console.log(div);
-    // elt.addEventListener("click", function(){
-    //     // div.style.display = "block";
-    // });
+    console.log('weather');
+    let div = elt.parentElement.previousSibling.previousSibling.previousSibling.nextSibling; 
+    //let div = elt.parentElement.previousSibling.previousSibling;
+    console.log(div);
+    elt.addEventListener("click", function(){
+        // div.style.display = "block";
+    });
     $(document).ready(function() {
         getWeather(); //Get the initial weather.
         setInterval(getWeather, 600000);  
@@ -52,15 +54,15 @@ function weather(elt){
           woeid: '',
           unit: 'f',
           success: function(weather) {
-            html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+            var html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
             html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
             html += '<li class="currently">'+weather.currently+'</li>';
             html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
-        
-            div.innerHTML = (html);
+            div.innerHTML = html;
+            console.log(html);
           },
           error: function(error) {
-            div.innerHTML = ('<p>'+error+'</p>');
+            div.innerHTML = '<p>'+error+'</p>';
           }
         });
     }

@@ -69,11 +69,17 @@ function insertGreeting(name) {
     var d = new Date();
     var hours = d.getHours();
     if (hours <= 12) {
-        $('.greetingWidget').html('Good Morning, ' + name + '!');
+        $('.greetingWidget').html('Good morning, ' + name);
     }
-    else {
-        $('.greetingWidget').html('Good Afternoon, ' + name + '!');
+    else if(hours < 17){
+        $('.greetingWidget').html('Good afternoon, ' + name);
     }  
+    else if(hours < 22){
+        $('.greetingWidget').html('Good evening, ' + name);
+    }  
+    else {
+        $('.greetingWidget').html('Good night, ' + name);
+    }
 }
 
 

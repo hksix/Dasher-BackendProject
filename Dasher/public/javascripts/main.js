@@ -7,7 +7,7 @@ $(function(){
 
 function clock(elt) {
     // let div = elt.parentElement.parentElement.parentElement.parentElement;
-    let div = elt.parentElement.parentElement;
+    let div = elt.parentElement.previousSibling.previousSibling;
     
     console.log(div);
     elt.addEventListener("click", function(){
@@ -37,7 +37,7 @@ function clock(elt) {
 }
 function weather(elt){
     // let div = elt.parentElement.parentElement.parentElement.parentElement;
-    let div = elt.parentElement.parentElement;
+    let div = elt.parentElement.previousSibling.previousSibling;
     // console.log(div);
     // elt.addEventListener("click", function(){
     //     // div.style.display = "block";

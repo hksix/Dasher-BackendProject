@@ -4,9 +4,9 @@ var router = express.Router();
 const db = require('../db');
 
 
-router.get('/:id/settings', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
   db.query(`
-    select emid, username, nickname, location, timezone from users
+    select username, nickname, location, timezone from users
     where userid=${req.params.id}
     ;
   `)
@@ -14,18 +14,16 @@ router.get('/:id/settings', function(req, res, next) {
       res.render('settings',{
         title: 'Dasher | Settings', 
         layout:'settingslayout', 
-        users: result
+        user: result
       });
     });
   });
 
-router.post('/:id/settings', function(req, res, next) {
+router.post('/:id', function(req, res, next) {
   console.log(req.body);
 
   db.result(`
     INSERT INTO users (memid, username, nickname, location, timezone)
-      VALUES(
-        '10001',
       '${req.body.username}',
       '${req.body.nickname}',
       '${req.body.location}',

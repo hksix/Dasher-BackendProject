@@ -51,6 +51,7 @@ passport.use(new GithubStrategy({
   
   },
   function(accessToken, refreshToken, profile, done) {
+    console.log(profile);
       db.query(`
       SELECT * from users where username='${profile.username}'
       `).then((results)=>{
@@ -76,9 +77,16 @@ passport.authenticate('github', { scope: [ 'user:email' ] }));
 app.get('/auth/github/callback', 
 passport.authenticate('github', { failureRedirect: '/' }),
 function(req, res) {
-  // Successful authentication, redirect home.
-  res.redirect('/dashboard');
+  // Successful authentication, redirect to dashboard.
+  // console.log(req.user.username) this will get the info from github and then we get the ID from our DB
+  db.one(`
+  SELECT userid from users WHERE username='${req.user.username}'
+  `).then((result)=>{
+    // console.log(result.userid) this will print out the userid from our DB
+    res.redirect('/dashboard/'+result.userid);
+  });
 });
+
 app.post('/auth/github',
   passport.authenticate('github', {
   successRedirect : '/dashboard', // redirect to the secure profile section

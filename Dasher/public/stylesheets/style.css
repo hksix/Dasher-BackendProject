@@ -313,13 +313,20 @@ ul {
   height: 20%;
 }
 
-.clockwidget {
-  border: none;
-  zoom: 0.5;
+
+.widget {
+  text-align: center;
+}
+.front {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  overflow: hidden;
 }
 
-
 .clockwidget {
-  
-  background-color: white;
+  width: 20px;
+  border: none;
+  zoom: 0.9;
 }

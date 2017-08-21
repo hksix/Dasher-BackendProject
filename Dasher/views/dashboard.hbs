@@ -14,33 +14,28 @@
       <div class="flipBox" id='box{{placement}}'>
         <div class='front widget{{widgetid}}'>
             <div class='widget'>
+              placement{{placement}}
                 widgetid {{widgetid}}
-                
-                {{!-- <h1>{{printItems widgetid}}</h1> --}}
             </div>
          
         </div>
         <div class='back'>
-          {{!-- <div class="dropdown"> --}}
-            {{!-- <button type='button' class="dropbtn">+</button> --}}
-            {{!-- <div class="dropdown-content"> --}}
-              {{!-- <div><i class="fa fa-times fa-2x" aria-hidden="true"></i></div> --}}
-              <div onclick="clock(this); return false;" class='clock option'><i class="fa fa-clock-o" aria-hidden="true"></i> Clock</div>
+              <div onclick="clock(this)" class='clock option'><i class="fa fa-clock-o" aria-hidden="true"></i> Clock</div>
               <div onclick="weather(this)" class='weather option'><i class="fa fa-sun-o" aria-hidden="true"></i> Weather</div>
               <div onclick="rss(this)"  class='news option'><i class="fa fa-newspaper-o" aria-hidden="true"></i> News</div>
-              <div onclick="message()" class='message option'><i class="fa fa-commenting-o" aria-hidden="true"></i> Message</div>
+
+              <div onclick="greeting(this)" class='greeting option'><i class="fa fa-commenting-o" aria-hidden="true"></i> Greeting </div>
+              <div onclick="date(this)" class='date option'><i class="fa fa-smile-o" aria-hidden="true"></i> Date </div>
+
               <div onclick="forcastweather(this)" class='widget5 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Weather Forcast</div>
               <div onclick="" class='widget6 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Widget6</div>
               <div onclick="" class='widget7 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Widget7</div>
               <div onclick="" class='widget8 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Widget8</div>
-              
-            {{!-- </div> --}}
           </div>
-        {{!-- </div> --}}
-      </div>
-  {{/each}}
+        </div>
+    {{/each}}
 </div>
-
+<div class="save">Save</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="/javascripts/jquery.flip.min.js"></script>

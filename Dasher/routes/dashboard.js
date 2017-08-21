@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 const db = require('../db');
 let wFunctions = require('../widgets');
-let handlebars = require('handlebars');
-let render = require('handlebars-render-helper');
+// let handlebars = require('handlebars');
+// let render = require('handlebars-render-helper');
 
 
 
@@ -20,29 +20,6 @@ router.get('/', function(req, res, next) {
       });
     });
   });
-handlebars.registerHelper("printItems", function(html) {
-            
-            // if (html == '1'){
-            //   htmlPromise = wFunctions.clock();
-            //   htmlPromise.then((currentTime)=>{
-            //     html = currentTime;
-            //     console.log(html);
-            //     return html;
-            //   })
-            //   .catch((error)=>{
-            //     console.log(error);
-            //   })
-             
-            // }
-          // if(html == '5') {
-          //   html = wFunctions.greeting();
-          //   return html;
-          // }
-            //html = widget;
-            //console.log(html)
-          // return html;
-        });
-
 
 // router.get('/:id/:placement', function(req, res, next) {
 //     db.query(`

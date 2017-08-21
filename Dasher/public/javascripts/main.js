@@ -7,7 +7,7 @@ $(function(){
 
 //add clock in widget1 locatiojn
 function insertClock(){
-    $('.widget1').html('<div class="clockWidget"></div>');
+    $('.front.widget1').html('<div class="clockWidget"></div>');
     // FlipClock initialization  
     var ServerTime = $('#my_time').val();
     var d = new Date();
@@ -21,7 +21,7 @@ function insertClock(){
 insertClock();
 
 function insertWeather(city, units){
-    $('.widget3').html('<div class="weatherWidget"></div>')
+    $('.front.widget3').html('<div class="weatherWidget"></div>')
     $(document).ready(function() {
         getWeather(); //Get the initial weather.
         setInterval(getWeather, 600000); //refresh every 10 minutes 
@@ -48,7 +48,7 @@ function insertWeather(city, units){
 insertWeather('Atlanta, GA', 'f');
 
 function insertDate(){
-    $('.widget2').html('<div class="dateWidget"></div>');
+    $('.front.widget2').html('<div class="dateWidget"></div>');
     var d = new Date();
     var dayOfWeek = d.getDay();
     var dayOfMonth = d.getDate();
@@ -65,19 +65,27 @@ insertDate();
 
 
 function insertGreeting(name) {
-    $('.widget4').html('<div class="greetingWidget"></div>');
+    $('.front.widget4').html('<div class="greetingWidget"></div>');
     
     var d = new Date();
     var hours = d.getHours();
     if (hours <= 12) {
-        $('.greetingWidget').html('Good Morning ' + name + '!');
+        $('.greetingWidget').html('Good Morning, ' + name + '!');
     }
     else {
-        $('.greetingWidget').html('Good Afternoon ' + name + '!');
+        $('.greetingWidget').html('Good Afternoon, ' + name + '!');
     }  
 }
 
-insertGreeting('Steph');
+insertGreeting('Jennifer');
+
+function clock(elt) {
+        var $front = $(elt).parent().prev();
+        $front.className = ''; //removes class
+        $front.addClass('widget1');
+        insertClock();
+}
+
 
 // function clock(elt) {
 //     // let div = elt.parentElement.parentElement.parentElement.parentElement;

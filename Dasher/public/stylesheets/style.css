@@ -330,3 +330,8 @@ ul {
   border: none;
   zoom: 0.9;
 }
+
+.greetingWidget {
+  text-align: center;
+  font-size: 3em;
+}

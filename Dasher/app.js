@@ -12,7 +12,7 @@ var dashboard = require('./routes/dashboard');
 var users = require('./routes/users');
 var auth = require('./routes/auth');
 var home = require('./views/home');
-var settings = require('./views/settings');
+var settings = require('./routes/settings');
 var app = express();
 
 // view engine setup for handlebars

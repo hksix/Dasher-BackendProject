@@ -280,6 +280,7 @@ ul {
   /* background-color: #485563; */
   padding-left: 10px;
   color: white;
+  background: black;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -312,6 +313,13 @@ ul {
   height: 20%;
 }
 
-.your-clock {
+.clockwidget {
   border: none;
+  zoom: 0.5;
+}
+
+
+.clockwidget {
+  
+  background-color: white;
 }

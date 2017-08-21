@@ -1,61 +1,63 @@
-// var fc = require('flipclock');
-
 // widget card toggle handler //
 $(function(){
-    $(".flip").flip({
+    $(".flipBox").flip({
         trigger: 'click'
     });
 });
 
-function getClockPlacement(){
-    
-        $('#widget1').html('<div class="yourclock"></div>');
+//add clock in widget1 locatiojn
+function insertClock(){
+    $('.widget1').html('<div class="clockwidget"></div>');
+    // FlipClock initialization  
+    var ServerTime = $('#my_time').val();
+    var d = new Date();
+    var n = d.getHours();
+    var diff = ServerTime - n;
+    clockwidget = $('.clockwidget').FlipClock(diff,{  
+        clockFace: 'TwentyFourHourClock',
+        showSeconds: false  
+    });  
 }
-getClockPlacement();
+insertClock();
 
-// FlipClock initialization  
-var ServerTime = $('#my_time').val();
-var d = new Date();
-var n = d.getHours();
-var diff = ServerTime - n;
-yourclock = $('.yourclock').FlipClock(diff,{  
-    clockFace: 'TwentyFourHourClock'  
-});  
+function insertWeather(){
+
+}
 
 
 
-
-function clock(elt) {
-    // let div = elt.parentElement.parentElement.parentElement.parentElement;
-    let div = elt.parentElement.previousSibling.previousSibling;
-    // let div = elt.parentElement.previousSibling.previousSibling.previousSibling.nextSibling; 
+// function clock(elt) {
+//     // let div = elt.parentElement.parentElement.parentElement.parentElement;
+//     let div = elt.parentElement.previousSibling.previousSibling;
+//     // let div = elt.parentElement.previousSibling.previousSibling.previousSibling.nextSibling; 
     
-    console.log(div);
-    elt.addEventListener("click", function(){
-        // div.style.display = "block";
-    });
-    function checkTime(i) {
-        if (i < 10) {
-          i = "0" + i;
-        }
-        return i;
-      }
+//     console.log(div);
+//     elt.addEventListener("click", function(){
+//         // div.style.display = "block";
+//     });
+//     function checkTime(i) {
+//         if (i < 10) {
+//           i = "0" + i;
+//         }
+//         return i;
+//       }
       
-      function startTime() { //this causes the clock to reappear automatically even when a different widget is selected
-        var today = new Date();
-        var h = today.getHours();
-        var m = today.getMinutes();
-        var s = today.getSeconds();
-        // add a zero in front of numbers<10
-        m = checkTime(m);
-        s = checkTime(s);
-        div.innerHTML = h + ":" + m + ":" + s;
-        t = setTimeout(function() {
-          startTime()
-        }, 500);
-      }
-      startTime();  
-}
+//       function startTime() { //this causes the clock to reappear automatically even when a different widget is selected
+//         var today = new Date();
+//         var h = today.getHours();
+//         var m = today.getMinutes();
+//         var s = today.getSeconds();
+//         // add a zero in front of numbers<10
+//         m = checkTime(m);
+//         s = checkTime(s);
+//         div.innerHTML = h + ":" + m + ":" + s;
+//         t = setTimeout(function() {
+//           startTime()
+//         }, 500);
+//       }
+//       startTime();  
+// }
+
 function weather(elt){
     console.log('weather');
     // let div = elt.parentElement.previousSibling.previousSibling.previousSibling.nextSibling; 

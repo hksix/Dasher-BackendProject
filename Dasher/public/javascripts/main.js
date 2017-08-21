@@ -6,7 +6,9 @@ $(function(){
 });
 
 function clock(elt) {
-    let div = elt.parentElement.parentElement.parentElement.parentElement;
+    // let div = elt.parentElement.parentElement.parentElement.parentElement;
+    let div = elt.parentElement.parentElement;
+    
     console.log(div);
     elt.addEventListener("click", function(){
         // div.style.display = "block";
@@ -34,11 +36,12 @@ function clock(elt) {
       startTime();  
 }
 function weather(elt){
-    let div = elt.parentElement.parentElement.parentElement.parentElement;
-    console.log(div);
-    elt.addEventListener("click", function(){
-        // div.style.display = "block";
-    });
+    // let div = elt.parentElement.parentElement.parentElement.parentElement;
+    let div = elt.parentElement.parentElement;
+    // console.log(div);
+    // elt.addEventListener("click", function(){
+    //     // div.style.display = "block";
+    // });
     $(document).ready(function() {
         getWeather(); //Get the initial weather.
         setInterval(getWeather, 600000);  

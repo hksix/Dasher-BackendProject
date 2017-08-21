@@ -1,0 +1,17 @@
+{{!--this form allows users to edit/resubmit new user preferences--}}
+<div class='settings'>
+    {{#with user}}
+    <form method="post">
+        Username:
+            <input type="text" name="username"value={{username}}><br>
+        Nickname:
+            <input type="text" name="nickname" value={{nickname}}><br>
+        Location:
+            <input type="text" name="location" value={{location}}><br>
+        Timezone:
+        {{!--make this a dropdown or radio button?--}}
+            <input type="text" name="timezone" value={{timezone}}><br>
+        <input type="submit" value="Submit">
+    </form>
+    {{/with}}
+</div>

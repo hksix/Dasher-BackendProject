@@ -9,180 +9,42 @@
   </ul>
   {{/each}}
   
-<div class='widget-rows'>
-    <div class='three-widget-row'>
-      <div class="flip">
-        <div class="front">
-          <div>Widget box 1
-            <div class='widget'></div>
-          </div>
+<div class="container">
+    {{#each dashsettings}}
+      <div class="flip" id='box{{placement}}'>
+        <div class="front"  id='widget{{widgetid}}'>
+            <div class='widget'>
+                widgetid {{widgetid}}
+                
+                {{!-- <h1>{{printItems widgetid}}</h1> --}}
+            </div>
+         
         </div>
         <div class='back'>
-          back
-          <div class="dropdown">
-            <button type='button' class="dropbtn">+</button>
-            <div class="dropdown-content">
-              <a type='button' onclick="clock(this)" class='clock'>Clock</a>
-              <a type='button' onclick="weather(this)" class='weather'>Weather</a>
-              <a type='button' onclick="rss(this)" class='news'>News</a>
-              <a type='button' onclick="message()">Message</a>
-            </div>
+          {{!-- <div class="dropdown"> --}}
+            {{!-- <button type='button' class="dropbtn">+</button> --}}
+            {{!-- <div class="dropdown-content"> --}}
+              {{!-- <div><i class="fa fa-times fa-2x" aria-hidden="true"></i></div> --}}
+              <div onclick="clock(this); return false;" class='clock option'><i class="fa fa-clock-o" aria-hidden="true"></i> Clock</div>
+              <div onclick="weather(this)" class='weather option'><i class="fa fa-sun-o" aria-hidden="true"></i> Weather</div>
+              <div onclick="rss(this)"  class='news option'><i class="fa fa-newspaper-o" aria-hidden="true"></i> News</div>
+              <div onclick="message()" class='message option'><i class="fa fa-commenting-o" aria-hidden="true"></i> Message</div>
+              <div onclick="" class='widget5 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Widget5</div>
+              <div onclick="" class='widget6 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Widget6</div>
+              <div onclick="" class='widget7 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Widget7</div>
+              <div onclick="" class='widget8 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Widget8</div>
+              
+            {{!-- </div> --}}
           </div>
-        </div>
+        {{!-- </div> --}}
       </div>
+  {{/each}}
+</div>
 
-      <div class="flip">
-        <div class="front">
-          <div>Widget box 2
-            <div class='widget'></div>
-          </div>
-        </div>
-        <div class='back'>
-          back
-          <div class="dropdown">
-            <button type='button' class="dropbtn">+</button>
-            <div class="dropdown-content">
-              <a type='button' onclick="clock(this)" class='clock'>Clock</a>
-              <a type='button' onclick="weather(this)" class='weather'>Weather</a>
-              <a type='button' onclick="rss(this)" class='news'>News</a>
-              <a type='button' onclick="message()">Message</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="flip">
-        <div class="front">
-          <div>Widget box 3
-            <div class='widget'></div>
-          </div>
-        </div>
-        <div class='back'>
-          back
-          <div class="dropdown">
-            <button type='button' class="dropbtn">+</button>
-            <div class="dropdown-content">
-              <a type='button' onclick="clock(this)" class='clock'>Clock</a>
-              <a type='button' onclick="weather(this)" class='weather'>Weather</a>
-              <a type='button' onclick="rss(this)" class='news'>News</a>
-              <a type='button' onclick="message()">Message</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class='widget-rows-long'>
-    <div class='two-widget-column'>
-      <div class="flip">
-        <div class="front">
-          {{!-- <div class='two-widget-column'> --}}
-          <div class = "long">Widget box 4 long
-            <div class='widget'></div>
-          </div>
-        </div>
-        <div class='back'>
-          back
-          <div class="dropdown">
-            <button type='button' class="dropbtn">+</button>
-            <div class="dropdown-content">
-              <a type='button' onclick="clock(this)" class='clock'>Clock</a>
-              <a type='button' onclick="weather(this)" class='weather'>Weather</a>
-              <a type='button' onclick="rss(this)" class='news'>News</a>
-              <a type='button' onclick="message()">Message</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class='two-widget-column'>
-      <div class="flip">
-        <div class="front">
-          
-          <div class='long'>Widget box 5 long
-            <div class='widget'></div>
-          </div>
-        </div>
-        <div class='back'>
-          back
-          <div class="dropdown">
-            <button type='button' class="dropbtn">+</button>
-            <div class="dropdown-content">
-              <a type='button' onclick="clock(this)" class='clock'>Clock</a>
-              <a type='button' onclick="weather(this)" class='weather'>Weather</a>
-              <a type='button' onclick="rss(this)" class='news'>News</a>
-              <a type='button' onclick="message()">Message</a>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-  <div class='widget-rows'>
-    <div class='three-widget-row'>
-      <div class="flip">
-        <div class="front">
-          <div>Widget box 6
-            <div class='widget'></div>
-          </div>
-        </div>
-        <div class='back'>
-          back
-          <div class="dropdown">
-            <button type='button' class="dropbtn">+</button>
-            <div class="dropdown-content">
-              <a type='button' onclick="clock(this)" class='clock'>Clock</a>
-              <a type='button' onclick="weather(this)" class='weather'>Weather</a>
-              <a type='button' onclick="rss(this)" class='news'>News</a>
-              <a type='button' onclick="message()">Message</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip">
-        <div class="front">
-          <div>Widget box 7
-            <div class='widget'></div>
-          </div>
-        </div>
-        <div class='back'>
-          back
-          <div class="dropdown">
-            <button type='button' class="dropbtn">+</button>
-            <div class="dropdown-content">
-              <a type='button' onclick="clock(this)" class='clock'>Clock</a>
-              <a type='button' onclick="weather(this)" class='weather'>Weather</a>
-              <a type='button' onclick="rss(this)" class='news'>News</a>
-              <a type='button' onclick="message()">Message</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="flip">
-        <div class="front">
-          <div>Widget box 8
-            <div class='widget'></div>
-          </div>
-        </div>
-        <div class='back'>
-          back
-          <div class="dropdown">
-            <button type='button' class="dropbtn">+</button>
-            <div class="dropdown-content">
-              <a type='button' onclick="clock(this)" class='clock'>Clock</a>
-              <a type='button' onclick="weather(this)" class='weather'>Weather</a>
-              <a type='button' onclick="rss(this)" class='news'>News</a>
-              <a type='button' onclick="message()">Message</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="javascripts/jquery.flip.min.js"></script>
-<script src="javascripts/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="/javascripts/jquery.flip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
+<script src="/javascripts/main.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
+<script src="https://use.fontawesome.com/1092cb84a3.js"></script>

@@ -3,14 +3,13 @@ html,body{
   height: 100%;
 }
 body {
-
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: black;
   color: white;
 }
 
 a {
-  color: #00B7FF;
+  /* color: #00B7FF; */
 }
 
 header{
@@ -18,7 +17,7 @@ header{
   /* position: fixed; */
   top: 0;
   display: flex;
-  background-color: blueviolet;
+  background-color: #003333;
   /* margin: -8px -8px 0 -8px; */
   height: 50px;
   /* padding: 0 0 0 0;  */
@@ -38,7 +37,7 @@ header> div > p{
 }
 
 header > .dropdown> .dropbtn {
-  background-color: #6645A1;
+  background-color: #003333;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -46,10 +45,10 @@ header > .dropdown> .dropbtn {
   cursor: pointer;
 }
 .dropbtn {
-  background-color: #6645A1;
+  background-color: black;
   color: white;
-  padding: 6px;
-  font-size: 16px;
+  /* padding: 6px; */
+  /* font-size: 16px; */
   border: none;
   cursor: pointer;
 }
@@ -83,14 +82,14 @@ header > .dropdown> .dropbtn {
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #312983;
+  background-color: #004d4d;
 }
 .show{
   display: block;
 }
 
 .widget-rows{
-  height: 40%;
+  height: 20%;
   /* width: 30%; */
   border: 1px solid white;
   display: flex;
@@ -119,7 +118,7 @@ header > .dropdown> .dropbtn {
 
 .two-widget-column{
   display: flex;
-  height: 80%;
+/* height: 80%; */
   margin: 0 0 20px 0;
   flex-direction: column;
   border: 1px solid white;
@@ -130,7 +129,7 @@ header > .dropdown> .dropbtn {
 
 .widget-rows-long{
   display: flex;
-  height: 30%;
+  height: 50%;
   margin: 20px 0 20px 0;
   /* width: 20%; */
   flex-direction: column;
@@ -168,7 +167,7 @@ header > .dropdown> .dropbtn {
 }
 .weather {
   /* width: 500px; */
-  margin: 0px auto;
+  /* margin: 0px auto; */
   text-align: center;
   /* text-transform: uppercase; */
 }
@@ -246,22 +245,73 @@ ul {
   padding: 0;
 }
 
-li {
+/* li {
   background: #fff;
   background: rgba(22, 137, 177, 0.90);
   padding: 15px;
   display: inline-block;
   border-radius: 5px;
-}
+} */
 
 .currently {
   margin: 5px 20px;
 }
 /* widget card toggle classes */
 .back{
-  background-color: purple;
-  color: blue;
+  /* background-color: #485563; */
+  color: white;
+  /* height: 40%; */
 }
 
 
+@media only screen and (min-width : 1200px) and (min-height: 1500){
+  
+}
 
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.back{
+  /* background-color: #485563; */
+  padding-left: 10px;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.option {
+  /* border: 1px white solid; */
+  height: 22%;
+  width: 40%;
+
+}
+.option:hover {
+  background: grey;
+}
+#box1, #box2, #box3 {
+  border: 1px white solid;
+  width: 30%;
+  height: 20%;
+}
+#box4, #box5 {
+  border: 1px white solid;
+  height: 20%;
+  width: 95%;
+}
+#box6, #box7, #box8 {
+  border: 1px white solid;
+  width: 30%;
+  height: 20%;
+}
+
+.your-clock {
+  border: none;
+}

@@ -41,8 +41,4 @@ router.get('/logout', function(req, res, next) {
   res.redirect('/');
 });
 
-// router.post('/', passport.authenticate('github'), (req, resp)=>{
-//   // log.debug(req.user);
-//   resp.send(req.user);
-// });
 module.exports = router;

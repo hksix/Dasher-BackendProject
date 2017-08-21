@@ -78,7 +78,8 @@ function insertGreeting(name) {
     }  
     else {
         $('.greetingWidget').html('Good night, ' + name);
-
+    }
+}
 function rss(elt){
     let div = elt.parentElement.previousSibling.previousSibling;
     console.log(div);

@@ -64,6 +64,21 @@ function insertDate(){
 insertDate();
 
 
+function insertGreeting(name) {
+    $('.widget4').html('<div class="greetingWidget"></div>');
+    
+    var d = new Date();
+    var hours = d.getHours();
+    if (hours <= 12) {
+        $('.greetingWidget').html('Good Morning ' + name + '!');
+    }
+    else {
+        $('.greetingWidget').html('Good Afternoon ' + name + '!');
+    }  
+}
+
+insertGreeting('Steph');
+
 // function clock(elt) {
 //     // let div = elt.parentElement.parentElement.parentElement.parentElement;
 //     let div = elt.parentElement.previousSibling.previousSibling;

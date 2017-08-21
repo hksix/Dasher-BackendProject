@@ -20,25 +20,17 @@
          
         </div>
         <div class='back'>
-          {{!-- <div class="dropdown"> --}}
-            {{!-- <button type='button' class="dropbtn">+</button> --}}
-            {{!-- <div class="dropdown-content"> --}}
-              {{!-- <div><i class="fa fa-times fa-2x" aria-hidden="true"></i></div> --}}
-              {{!-- <div class='clock-option option'><i class="fa fa-clock-o" aria-hidden="true"></i> Clock</div> --}}
               <div onclick="clock(this)" class='clock option'><i class="fa fa-clock-o" aria-hidden="true"></i> Clock</div>
               <div onclick="weather(this)" class='weather option'><i class="fa fa-sun-o" aria-hidden="true"></i> Weather</div>
               <div onclick="rss(this)"  class='news option'><i class="fa fa-newspaper-o" aria-hidden="true"></i> News</div>
-              <div onclick="message()" class='message option'><i class="fa fa-commenting-o" aria-hidden="true"></i> Message</div>
-              <div onclick="" class='widget5 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Widget5</div>
+              <div onclick="greeting(this)" class='greeting option'><i class="fa fa-commenting-o" aria-hidden="true"></i> Greeting </div>
+              <div onclick="date(this)" class='date option'><i class="fa fa-smile-o" aria-hidden="true"></i> Date </div>
               <div onclick="" class='widget6 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Widget6</div>
               <div onclick="" class='widget7 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Widget7</div>
               <div onclick="" class='widget8 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Widget8</div>
-              
-            {{!-- </div> --}}
           </div>
-        {{!-- </div> --}}
-      </div>
-  {{/each}}
+        </div>
+    {{/each}}
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

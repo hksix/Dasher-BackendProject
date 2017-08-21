@@ -5,7 +5,7 @@ $(function(){
     });
 });
 
-//add clock in widget1 locatiojn
+//add clock in widget1 location
 function insertClock(){
     $('.front.widget1').html('<div class="clockWidget"></div>');
     // FlipClock initialization  
@@ -18,8 +18,8 @@ function insertClock(){
         showSeconds: false  
     });  
 }
-insertClock();
 
+//add weather in widget3 location
 function insertWeather(city, units){
     $('.front.widget3').html('<div class="weatherWidget"></div>')
     $(document).ready(function() {
@@ -45,8 +45,8 @@ function insertWeather(city, units){
     }
 }
 
-insertWeather('Atlanta, GA', 'f');
 
+//add date in widget2 location
 function insertDate(){
     $('.front.widget2').html('<div class="dateWidget"></div>');
     var d = new Date();
@@ -61,9 +61,8 @@ function insertDate(){
         '<div class="DOW">'+ dayNames[dayOfWeek] + '</div>'+
         '<div class "DateString">'+ monthNames[month] + ' ' + dayOfMonth + ' '+ year +'</div>');
 }
-insertDate();
 
-
+// add greeting to widget4 location
 function insertGreeting(name) {
     $('.front.widget4').html('<div class="greetingWidget"></div>');
     
@@ -77,103 +76,40 @@ function insertGreeting(name) {
     }  
 }
 
+
+//on document load
+insertClock();
+insertWeather('Atlanta, GA', 'f');
+insertDate();
 insertGreeting('Jennifer');
 
+
+//on widget selection
 function clock(elt) {
-        var $front = $(elt).parent().prev();
-        $front.className = ''; //removes class
-        $front.addClass('widget1');
-        insertClock();
+    var $front = $(elt).parent().prev();
+    $front.removeClass(); //removes class
+    $front.addClass('front widget1');
+    insertClock();
 }
 
-
-// function clock(elt) {
-//     // let div = elt.parentElement.parentElement.parentElement.parentElement;
-//     let div = elt.parentElement.previousSibling.previousSibling;
-//     // let div = elt.parentElement.previousSibling.previousSibling.previousSibling.nextSibling; 
-    
-//     console.log(div);
-//     elt.addEventListener("click", function(){
-//         // div.style.display = "block";
-//     });
-//     function checkTime(i) {
-//         if (i < 10) {
-//           i = "0" + i;
-//         }
-//         return i;
-//       }
-      
-//       function startTime() { //this causes the clock to reappear automatically even when a different widget is selected
-//         var today = new Date();
-//         var h = today.getHours();
-//         var m = today.getMinutes();
-//         var s = today.getSeconds();
-//         // add a zero in front of numbers<10
-//         m = checkTime(m);
-//         s = checkTime(s);
-//         div.innerHTML = h + ":" + m + ":" + s;
-//         t = setTimeout(function() {
-//           startTime()
-//         }, 500);
-//       }
-//       startTime();  
-// }
-
-// function weather(elt){
-//     console.log('weather');
-//     // let div = elt.parentElement.previousSibling.previousSibling.previousSibling.nextSibling; 
-//     let div = elt.parentElement.previousSibling.previousSibling;
-//     console.log(div);
-//     elt.addEventListener("click", function(){
-//         // div.style.display = "block";
-//     });
-//     $(document).ready(function() {
-//         getWeather(); //Get the initial weather.
-//         setInterval(getWeather, 600000);  
-//     });
-//         function getWeather(){
-//             $.simpleWeather({
-//           location: 'Atlanta, GA',
-//           woeid: '',
-//           unit: 'f',
-//           success: function(weather) {
-//             var html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
-//             html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
-//             html += '<li class="currently">'+weather.currently+'</li>';
-//             html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
-//             div.innerHTML = html;
-//             console.log(html);
-//           },
-//           error: function(error) {
-//             div.innerHTML = '<p>'+error+'</p>';
-//           }
-//         });
-//     }
-// }
-
-
-
-function rss(elt){
-    let div = elt.parentElement.parentElement.parentElement.parentElement;
-    console.log(div);
-    elt.addEventListener("click", function(){
-        
-    });
-    function getNews(){
-        // div.style.display = "block";
-        // var news = $('<iframe><script src = "rss.bloople.net/?url=http%3A%2F%2Frss.cnn.com%2Frss%2Fcnn_topstories.rss&showtitle=false&type=js"></script></iframe>');
-        
-        
-         div.append($("<iframe />", {
-            "script"  : true,
-            "src" : "rss.bloople.net/?url=http%3A%2F%2Frss.cnn.com%2Frss%2Fcnn_topstories.rss&showtitle=false&type=js"
-            
-           }));
-        //    div.append(news);
-
-    }
-    getNews();
+function weather(elt) {
+    var $front = $(elt).parent().prev();
+    $front.removeClass(); //removes class
+    $front.addClass('front widget3');
+    insertWeather('Atlanta, GA', 'f'); 
 }
 
+function date(elt) {
+    var $front = $(elt).parent().prev();
+    $front.removeClass(); //removes class
+    $front.addClass('front widget2');
+    insertDate();
+}
 
+function greeting(elt) {
+    var $front = $(elt).parent().prev();
+    $front.removeClass(); //removes class
+    $front.addClass('front widget4');
+    insertGreeting('Jennifer');
+}
 

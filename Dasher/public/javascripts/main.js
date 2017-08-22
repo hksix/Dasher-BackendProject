@@ -167,7 +167,7 @@ insertGreeting('Jennifer');
 insertForecast('Atlanta, GA', 'f');
 insertNews();
 insertCal();
-insertReminder('Call Doctor');
+insertReminder('Eat dinner');
 
 //on widget selection
 function clock(elt) {

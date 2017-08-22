@@ -3,7 +3,8 @@ html,body{
   height: 100%;
 }
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+  font-family: 'Open Sans';
   background-color: black;
   color: white;
 }
@@ -23,7 +24,8 @@ header{
   
 }
 header> div > p{
-  font-family:Arial, Helvetica, sans-serif ;
+  /* font-family:Arial, Helvetica, sans-serif ; */
+  font-family: 'Open Sans';
   /* font-size: 20px; */
   text-decoration: underline;
   clear: both; 
@@ -299,7 +301,7 @@ a {
   justify-content: space-between;
 }
 .weatherIcon {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .forecastDiv {

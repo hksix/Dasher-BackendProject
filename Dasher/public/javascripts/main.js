@@ -144,7 +144,7 @@ function forcastweather(elt){
 insertClock();
 insertWeather('Atlanta, GA', 'f');
 insertDate();
-insertGreeting('Jennifer');
+// insertGreeting('Jennifer');
 
 
 //on widget selection
@@ -169,11 +169,11 @@ function date(elt) {
     insertDate();
 }
 
-function greeting(elt) {
+function greeting(elt,name) {
     var $front = $(elt).parent().prev();
     $front.removeClass(); //removes class
     $front.addClass('front widget4');
-    insertGreeting('Jennifer');
+    insertGreeting(name);
 }
 
 // function getNews(){

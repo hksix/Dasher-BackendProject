@@ -36,11 +36,14 @@ passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
 
-passport.deserializeUser((id, done)=> {
-  db.query('users').where({id}).first()
-  .then((user) => { done(null, user); })
-  .catch((err) => { done(err,null); });
-  });
+passport.deserializeUser((user, done)=> {
+  db.User.find({where: {id: user.id}}).success(function(user){
+  done(null, user);
+  })
+  .error(function(err){
+  done(err, null)
+});
+});
 
 
 passport.use(new GithubStrategy({
@@ -50,26 +53,24 @@ passport.use(new GithubStrategy({
   
   },
   function(accessToken, refreshToken, profile, done) {
-    done(null,profile);
     console.log(profile);
-    console.log("profileid" ,profile.id)
-    // profil gives you an object with 
-    // id: '29579724',
-    // displayName: 'Hamza Haseeb',
-    // username: 'hksix',
-  }
-));
-
-
-
-
-//     User.findOrCreate({ githubId: profile.id }, function (err, user) {
-//       return done(err, user);
-//     });
-//         // placeholder for translating profile into your own custom user object.
-//     //     // for now we will just use the profile object returned by GitHub
-//   }
-// ));
+      db.query(`
+      SELECT * from users where username='${profile.username}'
+      `).then((results)=>{
+        if(results.length == 0){
+          db.query(`
+          INSERT INTO users(username, nickname)
+            VALUES(
+              '${profile.username}',
+              '${profile.displayName}'
+            )`).then(done(null,profile)
+                )}
+              else{
+              return done(null,profile);
+            }
+        })
+      }
+    ));
 
 
 app.get('/auth/github',
@@ -78,10 +79,22 @@ passport.authenticate('github', { scope: [ 'user:email' ] }));
 app.get('/auth/github/callback', 
 passport.authenticate('github', { failureRedirect: '/' }),
 function(req, res) {
-  // Successful authentication, redirect home.
-  res.redirect('/dashboard');
+  // Successful authentication, redirect to dashboard.
+  // console.log(req.user.username) this will get the info from github and then we get the ID from our DB
+  db.one(`
+  SELECT userid from users WHERE username='${req.user.username}'
+  `).then((result)=>{
+    // console.log(result.userid) this will print out the userid from our DB
+    res.redirect('/dashboard/'+result.userid);
+  });
 });
 
+app.post('/auth/github',
+  passport.authenticate('github', {
+  successRedirect : '/dashboard', // redirect to the secure profile section
+  failureRedirect : '/', // redirect back to the signup page if there is an error
+  failureFlash : true // allow flash messages
+}));
 
 // Express and Passport Session
 const session = require('express-session');
@@ -91,8 +104,6 @@ app.use(session({
   saveUninitialized: true
 
 }));
-
-
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

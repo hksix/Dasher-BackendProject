@@ -1,0 +1,126 @@
+html,body{
+  width:100%;
+  height: 100%;
+}
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: black;
+  color: white;
+}
+
+header{
+  display: flex;
+  background-color: #003333;
+  height: 50px;
+  padding:0;
+  width: 101%;
+  flex-direction: row;
+  overflow: hidden;
+  /*border: 1px solid white;*/
+  
+}
+header > div > p{
+  font-family:Arial, Helvetica, sans-serif ;
+  text-decoration: underline;
+  clear: both; 
+  justify-content: center;
+  padding-left: 30px;
+}
+
+.dropdown .dropbtn {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #004d4d;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.project {
+    /*border: 1px solid white;*/
+}
+
+.project img {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.dev {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.hamza,
+.jen,
+.steph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    height: 30%;
+    margin-left: 35px;
+}
+
+h2 {
+    width: 100%;
+    height: 50px;
+    margin-left: 45%;
+}
+
+dev p {
+    width: 200px;
+    height: 200px;
+    overflow: scroll;
+    
+}
+
+.project img {
+
+}
+
+.dev img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}

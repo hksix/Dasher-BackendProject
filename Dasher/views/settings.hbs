@@ -1,0 +1,26 @@
+{{!--this form allows users to edit/resubmit new user preferences--}}
+<div class='settings'>
+    {{#each user}}
+    <form class="form" method="post">
+        Username:
+            <input class="textArea" type="text" name="username" value={{username}}><br>
+            <br>
+        Nickname:
+            <input class="textArea" type="text" name="nickname" value={{nickname}}><br>
+        <br>
+        Location:
+            <input class="textArea" type="text" name="location" value={{location}}><br>
+        <br>
+        Timezone:
+        {{!--make this a dropdown or radio button?--}}
+            <input class="textArea" type="text" name="timezone" value={{timezone}}><br>
+        <br>
+        <input class="submitbtn" type="submit" value="Submit">
+    </form>
+    {{/each}}
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="/javascripts/jquery.flip.min.js"></script>
+<script src="/javascripts/main.js"></script>

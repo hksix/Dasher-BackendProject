@@ -357,4 +357,15 @@ ul {
 .flip-clock-wrapper {
   width: 300px !important;
   align-self: center;
+  font-family: 'Open Sans' !important;
+}
+
+.jqx-layout-group-auto-hide-content-vertical
+{
+    width: 200px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }

@@ -23,7 +23,7 @@ router.post('/:id', function(req, res, next) {
   console.log(req.body);
 
   db.result(`
-    INSERT INTO users (memid, username, nickname, location, timezone)
+    INSERT INTO users (username, nickname, location, timezone)
       '${req.body.username}',
       '${req.body.nickname}',
       '${req.body.location}',

@@ -6,7 +6,7 @@ const db = require('../db');
 
 router.get('/:id', function(req, res, next) {
   db.query(`
-    select username, nickname, location, timezone from users
+    select username, nickname, location, reminder from users
     where userid=${req.params.id}
     ;
   `)
@@ -19,18 +19,19 @@ router.get('/:id', function(req, res, next) {
     });
   });
 
+
+
 router.post('/:id', function(req, res, next) {
   console.log(req.body);
 
   db.result(`
-    INSERT INTO users (username, nickname, location, timezone)
-      '${req.body.username}',
-      '${req.body.nickname}',
-      '${req.body.location}',
-      '${req.body.timezone}',
-      DEFAULT,
-      );
-  `).catch(console.log)
+    UPDATE users 
+    SET username = '${req.body.username}',
+    nickname = '${req.body.nickname}',
+    location = '${req.body.location}',
+    reminder = '${req.body.reminder}'
+    WHERE userid = '${req.params.id}'
+    `).catch(console.log)
 });
 
 module.exports = router;

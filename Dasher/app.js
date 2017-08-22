@@ -53,7 +53,7 @@ passport.use(new GithubStrategy({
   
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log(profile);
+    // console.log(profile);
       db.query(`
       SELECT * from users where username='${profile.username}'
       `).then((results)=>{
@@ -87,12 +87,19 @@ function(req, res) {
     // console.log(result.userid) this will print out the userid from our DB
     res.redirect('/dashboard/'+result.userid)
     db.query(`
+    SELECT * from dashsettings where userid='${result.userid}'
+    `).then((results)=>{
+      if(results.length == 0){
+    db.query(`
     INSERT INTO dashsettings(userid)
       VALUES(
         '${result.userid}'
       )`);
-  });
-});
+    }
+  })
+  })
+})
+      
 
 app.post('/auth/github',
   passport.authenticate('github', {

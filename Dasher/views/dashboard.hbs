@@ -1,21 +1,16 @@
 {{!--layouts/dashlayout.hbs---}}
-  {{#each dashsettings}}
-  <ul>  
-    {{!-- <li>userid: {{userid}}</li>
-    <li>username: {{username}}</li>
-    <li>nickname: {{nickname}}</li>
-    <li>location: {{location}}</li>
-    <li>timezone: {{timezone}}</li> --}}
-  </ul>
-  {{/each}}
-
+  {{!-- {{#each users}} --}}
 <div class="container">
     {{#each dashsettings}}
+    
       <div class="flipBox" id='box{{placement}}'>
         <div class='front widget{{widgetid}}'>
             <div class='widget'>
+              +
               placement{{placement}}
-                widgetid {{widgetid}}
+              widgetid {{widgetid}}
+              {{!-- <div class='nickname{{placement}}'>{{nickname}}</div> --}}
+                
             </div>
          
         </div>

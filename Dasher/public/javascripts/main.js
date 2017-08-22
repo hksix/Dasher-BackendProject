@@ -1,10 +1,11 @@
+
+
 // widget card toggle handler //
 $(function(){
     $(".flipBox").flip({
         trigger: 'click'
     });
 });
-
 //add clock in widget1 location
 function insertClock(){
     $('.front.widget1').html('<div class="clockWidget"></div>');
@@ -102,6 +103,7 @@ function rss(elt){
 }
     
 function forcastweather(elt){
+
     console.log('weather');
     // let div = elt.parentElement.previousSibling.previousSibling.previousSibling.nextSibling; 
     let div = elt.parentElement.previousSibling.previousSibling;
@@ -144,7 +146,7 @@ function forcastweather(elt){
 insertClock();
 insertWeather('Atlanta, GA', 'f');
 insertDate();
-// insertGreeting('Jennifer');
+insertGreeting('Jennifer');
 
 
 //on widget selection
@@ -152,6 +154,8 @@ function clock(elt) {
     var $front = $(elt).parent().prev();
     $front.removeClass(); //removes class
     $front.addClass('front widget1');
+    var parentElement = $front[0]['parentElement'].id;
+    sendWidgetIdBack("widget1",parentElement);
     insertClock();
 }
 
@@ -160,12 +164,17 @@ function weather(elt) {
     $front.removeClass(); //removes class
     $front.addClass('front widget3');
     insertWeather('Atlanta, GA', 'f'); 
+    var parentElement = $front[0]['parentElement'].id;
+    sendWidgetIdBack("widget3",parentElement);
 }
 
 function date(elt) {
     var $front = $(elt).parent().prev();
     $front.removeClass(); //removes class
     $front.addClass('front widget2');
+
+    var parentElement = $front[0]['parentElement'].id;
+    sendWidgetIdBack("widget2",parentElement);
     insertDate();
 }
 
@@ -173,6 +182,11 @@ function greeting(elt,name) {
     var $front = $(elt).parent().prev();
     $front.removeClass(); //removes class
     $front.addClass('front widget4');
+   
+    var parentElement = $front[0]['parentElement'].id;
+    sendWidgetIdBack("widget4",parentElement);
+    // console.log(parentElement);
+    // console.log($front);
     insertGreeting(name);
 }
 
@@ -193,3 +207,10 @@ function greeting(elt,name) {
 // }
 // getNews();
 
+function sendWidgetIdBack(widgetID,placementID){
+    var pathname = window.location.pathname;
+    pathname = pathname.substr(pathname.length -1);
+    $.post('http://localhost:3000/dashboard/'+pathname,{widgetID : widgetID, placementID : `${placementID}`}, function(results){
+        // console.log(placementID);
+    });
+}

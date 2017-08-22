@@ -91,10 +91,10 @@ function(req, res) {
     `).then((results)=>{
       if(results.length == 0){
     db.query(`
-    INSERT INTO dashsettings(userid)
-      VALUES(
-        '${result.userid}'
-      )`);
+    INSERT INTO dashsettings (userid, placement)
+      SELECT ${result.userid} id, x 
+      FROM unnest(ARRAY[1,2,3,4,5,6,7,8]) x
+    `);
     }
   })
   })
@@ -151,3 +151,5 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+

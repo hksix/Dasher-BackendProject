@@ -45,7 +45,7 @@ router.get('/', function(req, res, next) {
         select 
         users.nickname,
         widgetid, 
-        placement 
+        placement
         from dashsettings
         INNER JOIN users on dashsettings.userid = users.userid 
         where dashsettings.userid=${req.params.id}
@@ -53,10 +53,13 @@ router.get('/', function(req, res, next) {
         ;
       `)
         .then((result)=>{ 
+          useridd = req.params.id,
+          console.log(result);
           res.render('dashboard',{
             title: 'Dasher | Dashboard', 
-            layout:'dashlayout', 
-            dashsettings: result
+            id: useridd,
+            dashsettings: result,
+            layout:'dashlayout'
           })
         });
       });

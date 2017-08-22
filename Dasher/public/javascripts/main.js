@@ -5,6 +5,13 @@ $(function(){
     });
 });
 
+
+
+function insertCal(){
+    $('.front.widget7').html('<div class="calendarWidget"></div>');
+    $('.calendarWidget').jqxCalendar({theme: "arctic", width:250, height:250});
+}
+
 //add clock in widget1 location
 function insertClock(){
     $('.front.widget1').html('<div class="clockWidget"></div>');
@@ -33,9 +40,9 @@ function insertWeather(city, units){
                 unit: units,
                 success: function(weather) {
                 var html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
-                html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
-                html += '<li class="currently">'+weather.currently+'</li>';
-                html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
+                html += '<div class="location">'+weather.city+', '+weather.region+'</div>';
+                html += '<div class="currently">'+weather.currently+'</div>';
+                html += '<div class="wind">'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</div>';
                 $('.weatherWidget').html(html)
           },
             error: function(error) {
@@ -67,7 +74,7 @@ function insertGreeting(name) {
     
     var d = new Date();
     var hours = d.getHours();
-    if (hours <= 12) {
+    if (hours < 12) {
         $('.greetingWidget').html('Good morning, ' + name);
     }
     else if(hours < 17){
@@ -76,67 +83,74 @@ function insertGreeting(name) {
     else if(hours < 22){
         $('.greetingWidget').html('Good evening, ' + name);
     }  
-    else {
+    else{
         $('.greetingWidget').html('Good night, ' + name);
     }
 }
-function rss(elt){
-    let div = elt.parentElement.previousSibling.previousSibling;
-    console.log(div);
-    elt.addEventListener("click", function(){
-        
-    });
-    function getNews(){
-        div.innerHTML = '';
-        $.get('http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml', function (data) {
-            // console.log(data);
-            $(data).find("channel>item:lt(5)").each(function () { // or "item" or whatever suits your feed
-                var el = $(this);
-                console.log("title      : " + el.find("title").text());
-                div.innerHTML = div.innerHTML + '</br>' + el.find("title").text();
+
+
+
+function insertNews() {
+    $('.front.widget5').html('<div class="newsWidget"></div>');
+    var html = [];
+    console.log(html.length < 1);
+        function getNews(){
+            //$.get('http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml', function (data) {
+                $.get('http://www.vetstreet.com/rss/news-feed.jsp?Categories=siteContentTags:dog-news:cat-news:inspiring-stories:animal-news', function (data) {  
                 
+                // console.log(data);
+                $(data).find("channel>item:lt(5)").each(function () { // or "item" or whatever suits your feed
+                    var el = $(this);
+                    console.log("title      : " + el.find("title").text());
+                    html.push('</br>' +   '<a target="_blank" rel="noopener noreferrer" href="' + el.find("link").text() + '">' +el.find("title").text() + '</a>');
+                    $('.newsWidget').html(html[0])
+                });
             });
-        });
-    }
-    getNews();
+            console.log(html);  
+        }
+        getNews();
+        setInterval(getNews, 600000);
+        var i = 0;
+        setInterval(()=>{
+            if(i < html.length){
+                $('.newsWidget').html(html[i += 1])
+            }else{
+                i = 0;
+                $('.newsWidget').html(html[0])
+            }
+        }, 10000); 
 }
-    
-function forcastweather(elt){
-    console.log('weather');
-    // let div = elt.parentElement.previousSibling.previousSibling.previousSibling.nextSibling; 
-    let div = elt.parentElement.previousSibling.previousSibling;
-    console.log(div);
-    elt.addEventListener("click", function(){
-        // div.style.display = "block";
-    });
+
+function insertForecast(city, units) {
+    $('.front.widget6').html('<div class="forecastWidget"></div>');
     $(document).ready(function() {
         getWeather(); //Get the initial weather.
         setInterval(getWeather, 600000);  
     });
-        function getWeather(){
-            $.simpleWeather({
-          location: 'Atlanta, GA',
-          woeid: '',
-          unit: 'f',
-          success: function(weather) {
-            html = '<h2>'+weather.temp+'&deg;'+weather.units.temp+'</h2>';
-            html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
-            html += '<li class="currently">'+weather.currently+'</li>';
-            html += '<li>'+weather.alt.temp+'&deg;C</li></ul>';
-            
-            for(var i=0;i<weather.forecast.length;i++) {
-              html += '<p>'+weather.forecast[i].day+': '+weather.forecast[i].high+'</p>';
-              html +='<h2><i class="icon-'+weather.forecast[i].code+'"></i></h2>'
-            }
-            div.innerHTML = html;
-            console.log(html);
-          },
-          error: function(error) {
-            div.innerHTML = '<p>'+error+'</p>';
-          }
+    function getWeather(){
+        $.simpleWeather({
+        location: city,
+              woeid: '',
+              unit: units,
+              success: function(weather) {
+                var html = '';    
+                for(var i=0;i<weather.forecast.length;i++) {
+                    
+                    html += '<div class="forecastDiv"><i class="weatherIcon icon-'+weather.forecast[i].code+'"></i> '+weather.forecast[i].day+': '+weather.forecast[i].high+'</p></div>';
+                  
+                }
+                $('.forecastWidget').html(html)
+              },
+              error: function(error) {
+                $('.forecastWidget').html(error)
+              }
         });
-
     }
+}
+
+function insertReminder(reminderText) {
+    $('.front.widget8').html('<div class="reminderWidget"></div>');
+    $('.reminderWidget').html(reminderText)
 }
 
 
@@ -144,9 +158,11 @@ function forcastweather(elt){
 insertClock();
 insertWeather('Atlanta, GA', 'f');
 insertDate();
-// insertGreeting('Jennifer');
-
-
+insertGreeting('Jennifer');
+insertForecast('Atlanta, GA', 'f');
+insertNews();
+insertCal();
+insertReminder('Call Doctor');
 //on widget selection
 function clock(elt) {
     var $front = $(elt).parent().prev();
@@ -176,20 +192,31 @@ function greeting(elt,name) {
     insertGreeting(name);
 }
 
-// function getNews(){
-//     $.get('http://rss.cnn.com/rss/cnn_topstories.rss', function (data) {
-//         console.log(data);
-//         $(data).find("channel>item").each(function () { // or "item" or whatever suits your feed
-//             var el = $(this);
-    
-//             console.log("------------------------");
-//             console.log("title      : " + el.find("item>title").text());
-//             // console.log("headline: "+ el.find("content").text());
-//             // console.log("------------------------");
-//             // console.log("author     : " + el.find("author").text());
-//             // console.log("description: " + el.find("description").text());
-//         });
-//     });
-// }
-// getNews();
+function news(elt) {
+    var $front = $(elt).parent().prev();
+    $front.removeClass(); //removes class
+    $front.addClass('front widget5');
+    insertNews();
+}
 
+function forecast(elt) {
+    var $front = $(elt).parent().prev();
+    $front.removeClass(); //removes class
+    $front.addClass('front widget6');
+    insertForecast('Atlanta, GA', 'f');
+}
+
+function calendar(elt) {
+    var $front = $(elt).parent().prev();
+    $front.removeClass(); //removes class
+    $front.addClass('front widget7');
+    insertCal();  
+}
+
+function reminder(elt) {
+    var $front = $(elt).parent().prev();
+    $front.removeClass(); //removes class
+    $front.addClass('front widget8');
+    insertReminder('Call Doctor')
+
+}

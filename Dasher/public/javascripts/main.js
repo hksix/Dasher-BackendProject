@@ -1,3 +1,5 @@
+
+
 // widget card toggle handler //
 $(function(){
     $(".flipBox").flip({
@@ -7,10 +9,12 @@ $(function(){
 
 
 
+
 function insertCal(){
     $('.front.widget7').html('<div class="calendarWidget"></div>');
     $('.calendarWidget').jqxCalendar({theme: "arctic", width:250, height:250});
 }
+
 
 //add clock in widget1 location
 function insertClock(){
@@ -121,6 +125,7 @@ function insertNews() {
         }, 10000); 
 }
 
+
 function insertForecast(city, units) {
     $('.front.widget6').html('<div class="forecastWidget"></div>');
     $(document).ready(function() {
@@ -163,11 +168,14 @@ insertForecast('Atlanta, GA', 'f');
 insertNews();
 insertCal();
 insertReminder('Call Doctor');
+
 //on widget selection
 function clock(elt) {
     var $front = $(elt).parent().prev();
     $front.removeClass(); //removes class
     $front.addClass('front widget1');
+    var parentElement = $front[0]['parentElement'].id;
+    sendWidgetIdBack("widget1",parentElement);
     insertClock();
 }
 
@@ -176,12 +184,17 @@ function weather(elt) {
     $front.removeClass(); //removes class
     $front.addClass('front widget3');
     insertWeather('Atlanta, GA', 'f'); 
+    var parentElement = $front[0]['parentElement'].id;
+    sendWidgetIdBack("widget3",parentElement);
 }
 
 function date(elt) {
     var $front = $(elt).parent().prev();
     $front.removeClass(); //removes class
     $front.addClass('front widget2');
+
+    var parentElement = $front[0]['parentElement'].id;
+    sendWidgetIdBack("widget2",parentElement);
     insertDate();
 }
 
@@ -189,6 +202,11 @@ function greeting(elt,name) {
     var $front = $(elt).parent().prev();
     $front.removeClass(); //removes class
     $front.addClass('front widget4');
+   
+    var parentElement = $front[0]['parentElement'].id;
+    sendWidgetIdBack("widget4",parentElement);
+    // console.log(parentElement);
+    // console.log($front);
     insertGreeting(name);
 }
 
@@ -218,5 +236,15 @@ function reminder(elt) {
     $front.removeClass(); //removes class
     $front.addClass('front widget8');
     insertReminder('Call Doctor')
-
 }
+
+function sendWidgetIdBack(widgetID,placementID){
+    var pathname = window.location.pathname;
+    pathname = pathname.substr(pathname.length -1);
+    $.post('http://localhost:3000/dashboard/'+pathname,{widgetID : widgetID, placementID : `${placementID}`}, function(results){
+        // console.log(placementID);
+    });
+}
+
+
+

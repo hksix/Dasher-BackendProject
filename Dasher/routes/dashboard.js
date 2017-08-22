@@ -52,53 +52,35 @@ router.get('/', function(req, res, next) {
         order by placement
         ;
       `)
-        .then((result)=>{ //i corresponds to placement id
-          // $('<li class="plum">Plum</li>').appendTo('#two')
-          // $('widget').append('<p>HEELLLOOOOOO</p>');
-          // $.html();
-          // for (var i = 0; i < 8; i++){  
-            // console.log(result[i]['widgetid']);
-
-            // $('#i').html(result[i]['widgetid']);
-            // result[i]['widgetid']  //this is your widgetid
-          // }
-
-
-          // handlebars.registerHelper("printItems", function(html) {
-            
-          //   if (html == '1'){
-          //     htmlPromise = wFunctions.clock();
-          //     htmlPromise.then((currentTime)=>{
-          //       html = currentTime;
-          //       console.log(html);
-          //       return html;
-          //     })
-          //     .catch((error)=>{
-          //       console.log(error);
-          //     })
-             
-          //   }
-            // if(html == '5') {
-            //   html = wFunctions.greeting();
-            //   return html;
-          //   }
-          //     //html = widget;
-          //     //console.log(html)
-          //   // return html;
-          // });
-          // console.log(result)
-          // var placementid = result[0]['placement'];
-          
-          // console.log('placement' + result[0]['placement']);
+        .then((result)=>{ 
           res.render('dashboard',{
             title: 'Dasher | Dashboard', 
             layout:'dashlayout', 
             dashsettings: result
           })
         });
-
       });
+router.post('/:id', function(req, res, next){
+  console.log(req.body.widgetID);
+  var widgetid = req.body.widgetID;
+  widgetid= widgetid.substr(widgetid.length -1);
+  var placementid = req.body.placementID;
+  placementid= placementid.substr(placementid.length -1);
 
+  console.log(placementid);
+  db.result(`
+  update dashsettings
+    set
+    widgetid='${widgetid}'
+    where userid = ${req.params.id} AND placement = ${placementid};
+`).then ((result) =>{
+  res.render('dashboard',{
+    title: 'Dasher | Dashboard', 
+    layout:'dashlayout', 
+    dashsettings:result
+    });
+});
+});
 
 
 module.exports = router;

@@ -13,7 +13,7 @@ var users = require('./routes/users');
 var auth = require('./routes/auth');
 var home = require('./views/home');
 var settings = require('./routes/settings');
-// var about = require('/routes/about')
+
 var app = express();
 
 // view engine setup for handlebars
@@ -53,7 +53,7 @@ passport.use(new GithubStrategy({
   
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log(profile);
+    // console.log(profile);
       db.query(`
       SELECT * from users where username='${profile.username}'
       `).then((results)=>{
@@ -87,12 +87,19 @@ function(req, res) {
     // console.log(result.userid) this will print out the userid from our DB
     res.redirect('/dashboard/'+result.userid)
     db.query(`
-    INSERT INTO dashsettings(userid)
-      VALUES(
-        '${result.userid}'
-      )`);
-  });
-});
+    SELECT * from dashsettings where userid='${result.userid}'
+    `).then((results)=>{
+      if(results.length == 0){
+    db.query(`
+    INSERT INTO dashsettings (userid, placement)
+      SELECT ${result.userid} id, x 
+      FROM unnest(ARRAY[1,2,3,4,5,6,7,8]) x
+    `);
+    }
+  })
+  })
+})
+      
 
 app.post('/auth/github',
   passport.authenticate('github', {
@@ -125,8 +132,6 @@ app.use('/auth', auth);
 app.use('/dashboard',dashboard);
 app.use('/settings', settings);
 
-// app.use('about', about);
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -146,3 +151,5 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+

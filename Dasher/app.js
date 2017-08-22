@@ -13,7 +13,6 @@ var users = require('./routes/users');
 var auth = require('./routes/auth');
 var home = require('./views/home');
 var settings = require('./routes/settings');
-var about = require('/routes/about')
 var app = express();
 
 // view engine setup for handlebars
@@ -124,7 +123,6 @@ app.use('/users', users);
 app.use('/auth', auth);
 app.use('/dashboard',dashboard);
 app.use('/settings', settings);
-app.use('about', about);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

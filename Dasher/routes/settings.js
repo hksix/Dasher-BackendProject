@@ -11,10 +11,12 @@ router.get('/:id', function(req, res, next) {
     ;
   `)
     .then((result)=>{
+      useridd = req.params.id,
       res.render('settings',{
         title: 'Dasher | Settings', 
-        layout:'settingslayout', 
-        user: result
+        id: useridd,
+        user: result,
+        layout:'settingslayout'
       });
     });
   });

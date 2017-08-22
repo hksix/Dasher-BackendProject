@@ -335,6 +335,6 @@ a {
 
 } 
 
-#box4 > .front > .newsWidget {
+#box4 > .front > .newsWidget, #box5 > .front > .newsWidget {
   font-size: 1.9rem;
 }

@@ -95,7 +95,9 @@ function insertNews() {
     var html = [];
     console.log(html.length < 1);
         function getNews(){
-            $.get('http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml', function (data) {
+            //$.get('http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml', function (data) {
+                $.get('http://www.vetstreet.com/rss/news-feed.jsp?Categories=siteContentTags:dog-news:cat-news:inspiring-stories:animal-news', function (data) {  
+                
                 // console.log(data);
                 $(data).find("channel>item:lt(5)").each(function () { // or "item" or whatever suits your feed
                     var el = $(this);

@@ -3,9 +3,6 @@ html,body{
   height: 100%;
 }
 body {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: black;
   color: white;
@@ -27,13 +24,12 @@ header > div > p{
   clear: both; 
   justify-content: center;
   padding-left: 30px;
-  border: 1px solid white;
 }
 
-.dropdown > .dropbtn {
+.dropdown .dropbtn {
   background-color: black;
   color: white;
-  padding: 16px; 
+  /*padding: 16px; */
   font-size: 16px;
   border: none;
   cursor: pointer;
@@ -42,6 +38,7 @@ header > div > p{
 .dropdown {
   position: relative;
   display: inline-block;
+
 }
 
 .dropdown-content {
@@ -74,24 +71,22 @@ header > div > p{
 /*form style*/
 .settings {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-content: center;
   color: black;
-  /*border: 1px solid white;*/
   height: 70%;
-  width: 50%;
+  width: 100%;
 }
 
 .form {
   color: white;
-  height: 50%;
-  width: 50%;
+  height: 70%;
+  width: 25%;
   margin-top: 100px;
 }
 
 .textArea {
-  width: 100%;
+  width: 82.5%;
   height: 25px;
   margin-top: 3px;
   font-size: 1.15em;
@@ -107,10 +102,35 @@ header > div > p{
   font-size: 1.25em;
   font-weight: bold;
   margin-left: 40%;
-  
+  margin-top: 20px;
 }
 
 .submitbtn:hover {
   background-color: #004d4d;
   color: white;
+}
+
+.birthday input {
+  width: 50px;
+  height: 25px;
+  margin-top: 3px;
+}
+
+.timezone {
+  height: 25px;
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+
+.celcius,
+.fahrenheit  {
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.reminder {
+  width: 82.5%;
+  height: 25px;
+  margin-top: 3px;
+  font-size: 1.15em;
 }

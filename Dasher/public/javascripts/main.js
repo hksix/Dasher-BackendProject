@@ -155,7 +155,8 @@ function insertForecast(city, units) {
 
 function insertReminder(reminderText) {
     $('.front.widget8').html('<div class="reminderWidget"></div>');
-    $('.reminderWidget').html(reminderText)
+    $('.reminderWidget').html(reminderText);
+    
 }
 
 
@@ -215,6 +216,8 @@ function news(elt) {
     var $front = $(elt).parent().prev();
     $front.removeClass(); //removes class
     $front.addClass('front widget5');
+    var parentElement = $front[0]['parentElement'].id;
+    sendWidgetIdBack("widget5",parentElement);
     insertNews();
 }
 
@@ -223,12 +226,16 @@ function forecast(elt) {
     $front.removeClass(); //removes class
     $front.addClass('front widget6');
     insertForecast('Atlanta, GA', 'f');
+    var parentElement = $front[0]['parentElement'].id;
+    sendWidgetIdBack("widget6",parentElement);
 }
 
 function calendar(elt) {
     var $front = $(elt).parent().prev();
     $front.removeClass(); //removes class
     $front.addClass('front widget7');
+    var parentElement = $front[0]['parentElement'].id;
+    sendWidgetIdBack("widget7",parentElement);
     insertCal();  
 }
 
@@ -236,7 +243,12 @@ function reminder(elt) {
     var $front = $(elt).parent().prev();
     $front.removeClass(); //removes class
     $front.addClass('front widget8');
+
+    var parentElement = $front[0]['parentElement'].id;
+    sendWidgetIdBack("widget8",parentElement);
+
     insertReminder('Push to Github')
+
 }
 
 function sendWidgetIdBack(widgetID,placementID){
@@ -247,5 +259,21 @@ function sendWidgetIdBack(widgetID,placementID){
     });
 }
 
-
+// function defaultSettings(){
+//     var pathname = window.location.pathname;
+//     pathname = pathname.substr(pathname.length -1);
+//     $.get('http://localhost:3000/dashboard/'+pathname, function(results){
+//         // console.log('HEY'+results)
+//         // insertClock();
+//         // insertWeather('Atlanta, GA', 'f');
+//         // insertDate();
+//         // insertGreeting(results.nickname);
+//         // insertForecast('Atlanta, GA', 'f');
+//         // insertNews();
+//         // insertCal();
+//         // insertReminder('Call Doctor');
+//         $('body').html(results);
+//     })
+// }
+// defaultSettings();
 

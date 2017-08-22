@@ -183,11 +183,11 @@ function date(elt) {
     insertDate();
 }
 
-function greeting(elt) {
+function greeting(elt,name) {
     var $front = $(elt).parent().prev();
     $front.removeClass(); //removes class
     $front.addClass('front widget4');
-    insertGreeting('Jennifer');
+    insertGreeting(name);
 }
 
 function news(elt) {

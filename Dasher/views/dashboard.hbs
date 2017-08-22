@@ -8,7 +8,7 @@
     <li>timezone: {{timezone}}</li> --}}
   </ul>
   {{/each}}
-  
+
 <div class="container">
     {{#each dashsettings}}
       <div class="flipBox" id='box{{placement}}'>
@@ -20,17 +20,15 @@
          
         </div>
         <div class='back'>
+              <div onclick="date(this)" class='date option'><i class="fa fa-calendar-o" aria-hidden="true"></i> Date</div>
+              <div onclick="calendar(this)" class='calendar option'><i class="fa fa-calendar" aria-hidden="true"></i> Calendar</div>
               <div onclick="clock(this)" class='clock option'><i class="fa fa-clock-o" aria-hidden="true"></i> Clock</div>
               <div onclick="weather(this)" class='weather option'><i class="fa fa-sun-o" aria-hidden="true"></i> Weather</div>
-              <div onclick="rss(this)"  class='news option'><i class="fa fa-newspaper-o" aria-hidden="true"></i> News</div>
-
-              <div onclick="greeting(this,'{{nickname}}')" class='greeting option'><i class="fa fa-commenting-o" aria-hidden="true"></i> Greeting </div>
-              <div onclick="date(this)" class='date option'><i class="fa fa-smile-o" aria-hidden="true"></i> Date </div>
-
-              <div onclick="forcastweather(this)" class='widget5 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Weather Forcast</div>
-              <div onclick="" class='widget6 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Widget6</div>
-              <div onclick="" class='widget7 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Widget7</div>
-              <div onclick="" class='widget8 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Widget8</div>
+              <div onclick="forecast(this)" class='forecast option'><i class="fa fa-cloud" aria-hidden="true"></i> Forecast</div>
+              <div onclick="news(this)"  class='news option'><i class="fa fa-newspaper-o" aria-hidden="true"></i> News</div>
+              <div onclick="greeting(this,'{{nickname}}')" class='greeting option'><i class="fa fa-comment-o" aria-hidden="true"></i> Greeting</div>
+              <div onclick="reminder(this)" class='reminder option'><i class="fa fa-bell" aria-hidden="true"></i> Reminder</div>
+              
           </div>
         </div>
         
@@ -46,6 +44,10 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="/javascripts/jquery.flip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
-<script src="/javascripts/main.js"></script>
+<script type="text/javascript" src="/jqwidgets/jqxcore.js"></script>
+<script type="text/javascript" src="/jqwidgets/jqxdatetimeinput.js"></script>
+<script type="text/javascript" src="/jqwidgets/jqxcalendar.js"></script>
+<script type="text/javascript" src="/jqwidgets/globalization/globalize.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
 <script src="https://use.fontawesome.com/1092cb84a3.js"></script>
+<script src="/javascripts/main.js"></script>

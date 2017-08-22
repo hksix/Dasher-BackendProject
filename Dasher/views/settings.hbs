@@ -5,16 +5,27 @@
         Username:
             <input class="textArea" type="text" name="username" value={{username}}><br>
             <br>
-        Nickname:
+       Nickname:
             <input class="textArea" type="text" name="nickname" value={{nickname}}><br>
+        <br>
+        Birthday:
+            <div class="birthday" name="birthday" value={{birthday}}>
+                <input id="day" type="tel" maxlength="2" placeholder="DD"/> /              
+                <input id="month" type="tel" maxlength="2" placeholder="MM"/>/
+                <input id="year" type="tel" maxlength="4" placeholder="YYYY"/>
+            </div>
         <br>
         Location:
             <input class="textArea" type="text" name="location" value={{location}}><br>
         <br>
-        Timezone:
-        {{!--make this a dropdown or radio button?--}}
-            <input class="textArea" type="text" name="timezone" value={{timezone}}><br>
+        Temperature:
+            Celcius:<input class="celcius" type="radio" name="temp" value={{temp}}>
+            Fahrenheit:<input class="fahrenheit" type="radio" name="temp" value={{temp}}><br>
         <br>
+        Reminder:
+            <input class="reminder" type="text" name="reminder" value={{reminder}}><br>
+        <br>
+
         <input class="submitbtn" type="submit" value="Submit">
     </form>
     {{/each}}

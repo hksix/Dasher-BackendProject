@@ -1,11 +1,11 @@
 {{!--layouts/dashlayout.hbs---}}
-  {{#each members}}
+  {{#each dashsettings}}
   <ul>  
-    <li>userid: {{userid}}</li>
+    {{!-- <li>userid: {{userid}}</li>
     <li>username: {{username}}</li>
     <li>nickname: {{nickname}}</li>
     <li>location: {{location}}</li>
-    <li>timezone: {{timezone}}</li>
+    <li>timezone: {{timezone}}</li> --}}
   </ul>
   {{/each}}
   
@@ -24,7 +24,7 @@
               <div onclick="weather(this)" class='weather option'><i class="fa fa-sun-o" aria-hidden="true"></i> Weather</div>
               <div onclick="rss(this)"  class='news option'><i class="fa fa-newspaper-o" aria-hidden="true"></i> News</div>
 
-              <div onclick="greeting(this)" class='greeting option'><i class="fa fa-commenting-o" aria-hidden="true"></i> Greeting </div>
+              <div onclick="greeting(this,'{{nickname}}')" class='greeting option'><i class="fa fa-commenting-o" aria-hidden="true"></i> Greeting </div>
               <div onclick="date(this)" class='date option'><i class="fa fa-smile-o" aria-hidden="true"></i> Date </div>
 
               <div onclick="forcastweather(this)" class='widget5 option'><i class="fa fa-smile-o" aria-hidden="true"></i> Weather Forcast</div>

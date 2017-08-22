@@ -42,8 +42,13 @@ router.get('/', function(req, res, next) {
   
     router.get('/:id', function(req, res, next) {
       db.query(`
-        select widgetid, placement from dashsettings 
-        where userid=${req.params.id}
+        select 
+        users.nickname,
+        widgetid, 
+        placement 
+        from dashsettings
+        INNER JOIN users on dashsettings.userid = users.userid 
+        where dashsettings.userid=${req.params.id}
         order by placement
         ;
       `)

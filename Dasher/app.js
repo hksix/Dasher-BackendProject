@@ -85,7 +85,12 @@ function(req, res) {
   SELECT userid from users WHERE username='${req.user.username}'
   `).then((result)=>{
     // console.log(result.userid) this will print out the userid from our DB
-    res.redirect('/dashboard/'+result.userid);
+    res.redirect('/dashboard/'+result.userid)
+    db.query(`
+    INSERT INTO dashsettings(userid)
+      VALUES(
+        '${result.userid}'
+      )`);
   });
 });
 

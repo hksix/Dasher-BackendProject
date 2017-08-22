@@ -8,10 +8,6 @@ body {
   color: white;
 }
 
-a {
-  /* color: #00B7FF; */
-}
-
 header{
   /* overflow: hidden; */
   /* position: fixed; */
@@ -86,61 +82,6 @@ header > .dropdown> .dropbtn {
 }
 .show{
   display: block;
-}
-
-.widget-rows{
-  height: 20%;
-  /* width: 30%; */
-  border: 1px solid white;
-  display: flex;
-  flex-direction: row;
-  /* justify-content: space-between; */
-
-}
-
-.three-widget-row{
-  
-  display: flex;
-  width: 100%;
-  text-align: center;  
-  /* flex-direction: row; */
-  
-  justify-content: space-between;
-  /* border: 1px solid white; */
-
-}
-.three-widget-row > div{
-  margin: 20px 20px 20px 20px;
-  width: 30%;
-  border: 1px solid white;
-  /* justify-content: space-between; */
-}
-
-.two-widget-column{
-  display: flex;
-/* height: 80%; */
-  margin: 0 0 20px 0;
-  flex-direction: column;
-  border: 1px solid white;
-  justify-content: center;
-  text-align: center;
-  align-content: flex-end;
-}
-
-.widget-rows-long{
-  display: flex;
-  height: 50%;
-  margin: 20px 0 20px 0;
-  /* width: 20%; */
-  flex-direction: column;
-  border: 1px solid white;
-  justify-content: center;
-  text-align: center;
-  align-content: flex-end;
-}
-.two-widget-column > .flip{
-  width: 100%;
-  height: 100px;
 }
 
 .add-btn{
@@ -245,27 +186,9 @@ ul {
   padding: 0;
 }
 
-/* li {
-  background: #fff;
-  background: rgba(22, 137, 177, 0.90);
-  padding: 15px;
-  display: inline-block;
-  border-radius: 5px;
-} */
 
 .currently {
   margin: 5px 20px;
-}
-/* widget card toggle classes */
-.back{
-  /* background-color: #485563; */
-  color: white;
-  /* height: 40%; */
-}
-
-
-@media only screen and (min-width : 1200px) and (min-height: 1500){
-  
 }
 
 .container {
@@ -297,21 +220,17 @@ ul {
 .option:hover {
   background: grey;
 }
-#box1, #box2, #box3 {
+#box1, #box2, #box3, #box6, #box7, #box8 {
   /* border: 1px white solid; */
   width: 30%;
-  height: 20%;
+  height: 25%;
 }
 #box4, #box5 {
   /* border: 1px white solid; */
-  height: 20%;
+  height: 15%;
   width: 95%;
 }
-#box6, #box7, #box8 {
-  /* border: 1px white solid; */
-  width: 30%;
-  height: 20%;
-}
+
 
 
 .widget {
@@ -331,7 +250,10 @@ ul {
   border: none;
   zoom: 0.9;
 }
-
+.calendarWidget {
+  zoom: 0.9;
+  align-self: center;
+}
 .greetingWidget {
   text-align: center;
   font-size: 2em;
@@ -368,4 +290,51 @@ ul {
 a {
   text-decoration: none;
   color: white;
+}
+
+.forecastWidget {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.weatherIcon {
+  font-size: 1.5rem;
+}
+
+.forecastDiv {
+  width: 20%;
+}
+
+.reminderWidget {
+  font-size: 2rem;
+}
+
+.dateWidget {
+  font-size: 2rem;
+}
+
+.location {
+  font-size: 1.5rem;
+}
+
+.currently {
+  font-size: 1.5rem;
+}
+.wind {
+  font-size: 1.5rem;
+}
+
+.newsWidget {
+  font-size: 1.5rem;
+}
+
+#box4 > .front > .calendarWidget, #box5 > .front > .calendarWidget  {
+  font-size: 1rem !important;
+  zoom: 0.9 !important;
+
+} 
+
+#box4 > .front > .newsWidget {
+  font-size: 1.9rem;
 }

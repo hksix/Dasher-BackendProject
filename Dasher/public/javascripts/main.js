@@ -40,9 +40,9 @@ function insertWeather(city, units){
                 unit: units,
                 success: function(weather) {
                 var html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
-                html += '<div>'+weather.city+', '+weather.region+'</div>';
+                html += '<div class="location">'+weather.city+', '+weather.region+'</div>';
                 html += '<div class="currently">'+weather.currently+'</div>';
-                html += '<div>'+weather.wind.direction+'. '+weather.wind.speed+' '+weather.units.speed+'</div>';
+                html += '<div class="wind">'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</div>';
                 $('.weatherWidget').html(html)
           },
             error: function(error) {
@@ -83,7 +83,7 @@ function insertGreeting(name) {
     else if(hours < 22){
         $('.greetingWidget').html('Good evening, ' + name);
     }  
-    else {
+    else{
         $('.greetingWidget').html('Good night, ' + name);
     }
 }
@@ -100,7 +100,7 @@ function insertNews() {
                 $(data).find("channel>item:lt(5)").each(function () { // or "item" or whatever suits your feed
                     var el = $(this);
                     console.log("title      : " + el.find("title").text());
-                    html.push('</br>' +   '<a target="_blank" href="' + el.find("link").text() + '">' +el.find("title").text() + '</a>');
+                    html.push('</br>' +   '<a target="_blank" rel="noopener noreferrer" href="' + el.find("link").text() + '">' +el.find("title").text() + '</a>');
                     $('.newsWidget').html(html[0])
                 });
             });
@@ -133,8 +133,9 @@ function insertForecast(city, units) {
               success: function(weather) {
                 var html = '';    
                 for(var i=0;i<weather.forecast.length;i++) {
-                  html += '<p>'+weather.forecast[i].day+': '+weather.forecast[i].high+'</p>';
-                  html +='<h2><i class="icon-'+weather.forecast[i].code+'"></i></h2>'
+                    
+                    html += '<div class="forecastDiv"><i class="weatherIcon icon-'+weather.forecast[i].code+'"></i> '+weather.forecast[i].day+': '+weather.forecast[i].high+'</p></div>';
+                  
                 }
                 $('.forecastWidget').html(html)
               },
@@ -145,11 +146,10 @@ function insertForecast(city, units) {
     }
 }
 
-
-
-
-    
-
+function insertReminder(reminderText) {
+    $('.front.widget8').html('<div class="reminderWidget"></div>');
+    $('.reminderWidget').html(reminderText)
+}
 
 
 //on document load
@@ -160,7 +160,7 @@ insertGreeting('Jennifer');
 insertForecast('Atlanta, GA', 'f');
 insertNews();
 insertCal();
-
+insertReminder('Call Doctor');
 //on widget selection
 function clock(elt) {
     var $front = $(elt).parent().prev();
@@ -209,4 +209,12 @@ function calendar(elt) {
     $front.removeClass(); //removes class
     $front.addClass('front widget7');
     insertCal();  
+}
+
+function reminder(elt) {
+    var $front = $(elt).parent().prev();
+    $front.removeClass(); //removes class
+    $front.addClass('front widget8');
+    insertReminder('Call Doctor')
+
 }

@@ -174,8 +174,8 @@ insertDate();
 insertGreeting();
 insertForecast('Atlanta, GA', 'f');
 insertNews();
-insertCal();
 insertReminder();
+insertCal();
 
 //on widget selection
 function clock(elt) {
@@ -249,7 +249,6 @@ function reminder(elt,text) {
     var $front = $(elt).parent().prev();
     $front.removeClass(); //removes class
     $front.addClass('front widget8');
-
     var parentElement = $front[0]['parentElement'].id;
     sendWidgetIdBack("widget8",parentElement);
     insertReminder(text);

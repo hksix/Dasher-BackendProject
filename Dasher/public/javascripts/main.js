@@ -175,11 +175,7 @@ insertGreeting();
 insertForecast('Atlanta, GA', 'f');
 insertNews();
 insertCal();
-<<<<<<< HEAD
 insertReminder();
-=======
-insertReminder('Push to Github');
->>>>>>> 87095ba1938742dd4a3d82b81f966754bf25f03a
 
 //on widget selection
 function clock(elt) {
@@ -256,13 +252,7 @@ function reminder(elt,text) {
 
     var parentElement = $front[0]['parentElement'].id;
     sendWidgetIdBack("widget8",parentElement);
-<<<<<<< HEAD
     insertReminder(text);
-=======
-
-    insertReminder('Push to Github')
-
->>>>>>> 87095ba1938742dd4a3d82b81f966754bf25f03a
 }
 
 function sendWidgetIdBack(widgetID,placementID){

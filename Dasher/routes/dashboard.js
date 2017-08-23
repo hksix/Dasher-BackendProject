@@ -49,7 +49,7 @@ router.get('/', function(req, res, next) {
         placement
         from dashsettings
         INNER JOIN users on dashsettings.userid = users.userid 
-        where dashsettings.userid=${req.params.id}
+        where dashsettings.userid= '${req.params.id}'
         order by placement
         ;
       `)

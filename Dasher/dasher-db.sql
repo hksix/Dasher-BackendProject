@@ -64,7 +64,7 @@ CREATE TABLE users (
     username character varying(100) NOT NULL,
     nickname character varying(100) NOT NULL,
     location character varying(100) DEFAULT 'ATL'::character varying NOT NULL,
-    timezone character(3) DEFAULT 'EST'::bpchar NOT NULL
+    reminder text
 );
 
 
@@ -135,6 +135,10 @@ ALTER TABLE ONLY widgets ALTER COLUMN widgetid SET DEFAULT nextval('widgets_widg
 --
 
 COPY dashsettings (userid, widgetid, placement) FROM stdin;
+1	1	1
+1	2	2
+1	3	3
+1	4	4
 2	1	8
 2	2	7
 2	3	6
@@ -143,6 +147,10 @@ COPY dashsettings (userid, widgetid, placement) FROM stdin;
 3	2	4
 3	3	5
 3	4	6
+1	5	5
+1	6	6
+1	7	7
+1	8	8
 2	5	4
 2	6	3
 2	7	2
@@ -151,22 +159,9 @@ COPY dashsettings (userid, widgetid, placement) FROM stdin;
 3	6	8
 3	7	1
 3	8	2
-7	\N	1
-7	\N	2
-7	\N	3
-7	\N	5
-7	\N	6
-7	\N	7
-7	\N	8
-7	3	4
-1	4	1
-1	4	2
-1	4	3
-1	4	4
-1	4	5
-1	4	6
-1	4	7
-1	4	8
+5	1	1
+5	2	2
+5	3	3
 \.
 
 
@@ -183,11 +178,12 @@ Test	Weather
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY users (userid, username, nickname, location, timezone) FROM stdin;
-1	username1	user1	ATL	EST
-2	username2	user2	LA	PST
-3	username3	user3	CHI	CST
-7	hksix	Hamza Haseeb	ATL	EST
+COPY users (userid, username, nickname, location, reminder) FROM stdin;
+1	username1	user1	ATL	\N
+2	username2	user2	LA	\N
+3	username3	user3	CHI	\N
+4	hksix	Hamza Haseeb	ATL	\N
+5	stephanieasmar	Stephanie	BOS	herro dere
 \.
 
 
@@ -195,7 +191,7 @@ COPY users (userid, username, nickname, location, timezone) FROM stdin;
 -- Name: users_userid_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('users_userid_seq', 7, true);
+SELECT pg_catalog.setval('users_userid_seq', 6, true);
 
 
 --
@@ -256,4 +252,3 @@ ALTER TABLE ONLY dashsettings
 --
 -- PostgreSQL database dump complete
 --
-

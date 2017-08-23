@@ -74,6 +74,9 @@ function insertDate(){
 
 // add greeting to widget4 location
 function insertGreeting(name) {
+    if(!name){
+        name = $('[data-name]').attr('data-name');
+    }
     $('.front.widget4').html('<div class="greetingWidget"></div>');
     
     var d = new Date();
@@ -164,7 +167,7 @@ function insertReminder(reminderText) {
 insertClock();
 insertWeather('Atlanta, GA', 'f');
 insertDate();
-insertGreeting('Jennifer');
+insertGreeting();
 insertForecast('Atlanta, GA', 'f');
 insertNews();
 insertCal();
@@ -249,9 +252,11 @@ function reminder(elt) {
 
 function sendWidgetIdBack(widgetID,placementID){
     var pathname = window.location.pathname;
-    pathname = pathname.substr(pathname.length -1);
+    pathname = pathname.substr(pathname.length -2);
+    console.log(pathname);
     $.post('http://localhost:3000/dashboard/'+pathname,{widgetID : widgetID, placementID : `${placementID}`}, function(results){
         // console.log(placementID);
+        
     });
 }
 

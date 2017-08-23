@@ -1,7 +1,8 @@
 {{!--this form allows users to edit/resubmit new user preferences--}}
 <div class='settings'>
-    {{#each user}}
+    {{#with user}}
     <form class="form" method="post">
+        
         Username:
             <input class="textArea" type="text" name="username" value={{username}}><br>
             <br>
@@ -28,7 +29,7 @@
 
         <input class="submitbtn" type="submit" value="Submit">
     </form>
-    {{/each}}
+    {{/with}}
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

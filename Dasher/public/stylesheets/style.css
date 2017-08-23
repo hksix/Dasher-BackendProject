@@ -340,3 +340,7 @@ a {
 #box4 > .front > .newsWidget, #box5 > .front > .newsWidget {
   font-size: 1.9rem;
 }
+
+#box4 > .front > .widget > .fa-plus-circle, #box5 > .front > .widget > .fa-plus-circle {
+  font-size: 1.7em;
+}

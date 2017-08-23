@@ -164,7 +164,6 @@ function insertReminder(reminderText) {
 insertClock();
 insertWeather('Atlanta, GA', 'f');
 insertDate();
-// insertGreeting($('.nickname1').text());
 insertGreeting('DC Cohort');
 insertForecast('Atlanta, GA', 'f');
 insertNews();

@@ -5,7 +5,7 @@ const db = require('../db');
 
 
 router.get('/:id', function(req, res, next) {
-  db.query(`
+  db.one(`
     select username, nickname, location, reminder from users
     where userid=${req.params.id}
     ;
@@ -33,7 +33,14 @@ router.post('/:id', function(req, res, next) {
     location = '${req.body.location}',
     reminder = '${req.body.reminder}'
     WHERE userid = '${req.params.id}'
-    `).catch(console.log)
+    `).then((result)=>{
+      res.render('settings',{
+        title: 'Dasher | Settings', 
+        id: useridd,
+        user: result,
+        layout:'settingslayout'
+      })
+    })
 });
 
 module.exports = router;

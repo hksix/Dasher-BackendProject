@@ -157,6 +157,9 @@ function insertForecast(city, units) {
 }
 
 function insertReminder(reminderText) {
+    if(!reminderText){
+        reminderText = $('[data-reminder]').attr('data-reminder');
+    }
     $('.front.widget8').html('<div class="reminderWidget"></div>');
     $('.reminderWidget').html(reminderText);
     
@@ -172,7 +175,7 @@ insertGreeting();
 insertForecast('Atlanta, GA', 'f');
 insertNews();
 insertCal();
-insertReminder('Push to Github');
+insertReminder();
 
 //on widget selection
 function clock(elt) {
@@ -242,16 +245,14 @@ function calendar(elt) {
     insertCal();  
 }
 
-function reminder(elt) {
+function reminder(elt,text) {
     var $front = $(elt).parent().prev();
     $front.removeClass(); //removes class
     $front.addClass('front widget8');
 
     var parentElement = $front[0]['parentElement'].id;
     sendWidgetIdBack("widget8",parentElement);
-
-    insertReminder('Push to Github')
-
+    insertReminder(text);
 }
 
 function sendWidgetIdBack(widgetID,placementID){

@@ -167,11 +167,12 @@ function insertReminder(reminderText) {
 insertClock();
 insertWeather('Atlanta, GA', 'f');
 insertDate();
+
 insertGreeting();
 insertForecast('Atlanta, GA', 'f');
 insertNews();
 insertCal();
-insertReminder('Call Doctor');
+insertReminder('Push to Github');
 
 //on widget selection
 function clock(elt) {
@@ -245,9 +246,12 @@ function reminder(elt) {
     var $front = $(elt).parent().prev();
     $front.removeClass(); //removes class
     $front.addClass('front widget8');
+
     var parentElement = $front[0]['parentElement'].id;
     sendWidgetIdBack("widget8",parentElement);
-    insertReminder('Call Doctor')
+
+    insertReminder('Push to Github')
+
 }
 
 function sendWidgetIdBack(widgetID,placementID){

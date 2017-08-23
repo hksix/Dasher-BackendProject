@@ -4,7 +4,7 @@
     <form class="form" method="post">
         
         Username:
-            <input class="textArea" type="text" name="username" value={{username}}><br>
+            <input class="textArea" type="text" readonly="readonly" name="username" value={{username}}><br>
             <br>
        Nickname:
             <input class="textArea" type="text" name="nickname" value={{nickname}}><br>
@@ -24,7 +24,7 @@
             Fahrenheit:<input class="fahrenheit" type="radio" name="temp" value={{temp}}><br>
         <br>
         Reminder:
-            <input class="reminder" type="text" name="reminder" value={{reminder}}><br>
+            <input class="reminder" type="text" name="reminder" value='{{reminder}}'><br>
         <br>
 
         <input class="submitbtn" type="submit" value="Submit">

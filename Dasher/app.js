@@ -29,7 +29,7 @@ require('dotenv').config();
 const passport = require('passport');
 var GithubStrategy = require('passport-github2').Strategy;
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session()); //use these more widely instead of querying ids
 
 passport.serializeUser(function(user, done) {
   // placeholder for custom user serialization
@@ -37,6 +37,8 @@ passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
 
+//route redirection if id does match current user session
+//add admin user settings?
 passport.deserializeUser((user, done)=> {
   db.User.find({where: {id: user.id}}).success(function(user){
   done(null, user);

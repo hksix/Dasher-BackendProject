@@ -44,6 +44,7 @@ router.get('/', function(req, res, next) {
       db.query(`
         select 
         users.nickname,
+        users.reminder,
         widgetid, 
         placement
         from dashsettings

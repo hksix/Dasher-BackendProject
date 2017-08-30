@@ -1,6 +1,6 @@
 <h1>Dasher<h1>
 
-<img src="images/dasher-logo.svg">
+<img src="/images/dasher-logo.svg">
 
 <h2><u>Overview:</u><h2>
 <h4>Dasher is a Node.js/Express server-rendered, customizable dashboard application. Handlebars.js partials were used to render the front-end views. The user can login using GitHub authentication. Dasher offers the user a choice of widgets (i.e. calendar, RSS feed) that they can customize and save to their preferences. Settings are stored in a PostgreSQL database.</h4>

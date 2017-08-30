@@ -10,15 +10,12 @@
 <h2><u>The Team:</u></h2>
 
 <h3>Stephanie Asmar: https://github.com/stephanieasmar</h3>
-</br>
 <b>Contributions:</b> Master Express router, PostgreSQL whiz, Handlebars partial writer.
 
 <h3>Jen Johnson: https://github.com/jenlij</h3>
-</br>
 <b>Contributions:</b> EC2 Instance Master, Handlebars partial writer, 
 
 <h3>Hamza Haseeb: https://github.com/hksix</h3>
-</br>
 <b>Contributions:</b> OAuth Master, Widget wrangler, Express router.
 
 </br>

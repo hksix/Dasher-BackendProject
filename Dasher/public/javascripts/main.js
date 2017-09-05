@@ -258,8 +258,10 @@ function sendWidgetIdBack(widgetID,placementID){
     var pathname = window.location.pathname;
     pathname = pathname.substr(pathname.length -2);
     console.log(pathname);
-    $.post('http://localhost:3000/dashboard/'+pathname,{widgetID : widgetID, placementID : `${placementID}`}, function(results){
-        // console.log(placementID);
+    //$.post('http://localhost:3000/dashboard/'+pathname,{widgetID : widgetID, placementID : `${placementID}`}, function(results){
+    $.post('http://ec2-52-207-242-113.compute-1.amazonaws.com/dashboard/'+pathname,{widgetID : widgetID, placementID : `${placementID}`}, function(results){
+            
+    // console.log(placementID);
         
     });
 }

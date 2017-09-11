@@ -99,7 +99,10 @@ function insertGreeting(name) {
 
 function insertNews() {
     $('.front.widget5').html('<div class="newsWidget"></div>');
-    var html = [];
+    // var html = [];
+    var news = ['Cute Video: Cat Trust Falls Into Owner\'s Lap', 
+    'Pet Scoop: Residents Rescue Blind Dog From Lake, Penguin Chicks Hand-Reared at Zoo',
+    '5 Adoption Stories We Can’t Get Enough Of'];
     //console.log(html.length < 1);
         function getNews(){
             //$.get('http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml', function (data) {
@@ -109,14 +112,8 @@ function insertNews() {
                 //$(data).find("channel>item:lt(5)").each(function () { // or "item" or whatever suits your feed
                     var el = $(this);
                     // console.log("title      : " + el.find("title").text());
-                    var news = ['Cute Video: Cat Trust Falls Into Owner\'s Lap', 
-                    'Pet Scoop: Residents Rescue Blind Dog From Lake, Penguin Chicks Hand-Reared at Zoo',
-                    '5 Adoption Stories We Can’t Get Enough Of'];
-                        
-                    
-                    //html.push('</br>' +   '<a target="_blank" rel="noopener noreferrer" href="' + el.find("link").text() + '">' +el.find("title").text() + '</a>');
-                    html.push('</br>' + news + '</a>');                    
-                    $('.newsWidget').html(html[0])
+                    //html.push('</br>' +   '<a target="_blank" rel="noopener noreferrer" href="' + el.find("link").text() + '">' +el.find("title").text() + '</a>');              
+                    $('.newsWidget').html('</br>' + news[0] + '</a>');
                 //});
             //});
             //console.log(html);  
@@ -125,11 +122,11 @@ function insertNews() {
         setInterval(getNews, 600000);
         var i = 0;
         setInterval(()=>{
-            if(i < html.length){
-                $('.newsWidget').html(html[i += 1])
+            if(i < news.length){
+                $('.newsWidget').html(news[i += 1])
             }else{
                 i = 0;
-                $('.newsWidget').html(html[0])
+                $('.newsWidget').html(news[0])
             }
         }, 10000); 
 }

@@ -100,20 +100,26 @@ function insertGreeting(name) {
 function insertNews() {
     $('.front.widget5').html('<div class="newsWidget"></div>');
     var html = [];
-    console.log(html.length < 1);
+    //console.log(html.length < 1);
         function getNews(){
             //$.get('http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml', function (data) {
-                $.get('http://www.vetstreet.com/rss/news-feed.jsp?Categories=siteContentTags:dog-news:cat-news:inspiring-stories:animal-news', function (data) {  
+                //$.get('http://www.vetstreet.com/rss/news-feed.jsp?Categories=siteContentTags:dog-news:cat-news:inspiring-stories:animal-news', function (data) {  
                 
                 // console.log(data);
-                $(data).find("channel>item:lt(5)").each(function () { // or "item" or whatever suits your feed
+                //$(data).find("channel>item:lt(5)").each(function () { // or "item" or whatever suits your feed
                     var el = $(this);
-                    console.log("title      : " + el.find("title").text());
-                    html.push('</br>' +   '<a target="_blank" rel="noopener noreferrer" href="' + el.find("link").text() + '">' +el.find("title").text() + '</a>');
+                    // console.log("title      : " + el.find("title").text());
+                    var news = ['Cute Video: Cat Trust Falls Into Owner\'s Lap', 
+                    'Pet Scoop: Residents Rescue Blind Dog From Lake, Penguin Chicks Hand-Reared at Zoo',
+                    '5 Adoption Stories We Can’t Get Enough Of'];
+                        
+                    
+                    //html.push('</br>' +   '<a target="_blank" rel="noopener noreferrer" href="' + el.find("link").text() + '">' +el.find("title").text() + '</a>');
+                    html.push('</br>' + news + '</a>');                    
                     $('.newsWidget').html(html[0])
-                });
-            });
-            console.log(html);  
+                //});
+            //});
+            //console.log(html);  
         }
         getNews();
         setInterval(getNews, 600000);

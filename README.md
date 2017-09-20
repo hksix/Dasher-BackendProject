@@ -57,14 +57,14 @@
 </br>
 
 <h2><u>Code Snippets:</u></h2>
-<img src="" alt="Code Snippet Here">
-<h4>The code above showcases...</h4>
+<h4>The code below showcases the Github Authorization process:</h4>
+<img src="images/ReadMe Snippets/Github-OAuth.png" alt="Github-OAuth Code Snippet">
 <br/>
-<img src="" alt="Code Snippet Here">
-<h4>The code above showcases...</h4>
+<h4>The code below showcases the scripts use to create the main dashboard routes:</h4>
+<img src="images/ReadMe Snippets/Dashboard.png" alt="Dashboard Code Snippet">
 <br/>
-<img src="" alt="Code Snippet Here">
-<h4>The code above showcases...</h4>
+<h4>The code below showcases the scripts used to save user settings to the database:</h4>
+<img src="images/ReadMe Snippets/UserSettings.png" alt="User Settings Code Snippet">
 <br/>
 
 <h2>Live Demo</h2>
@@ -72,9 +72,11 @@ https://www.dasherpi.com
 </br>
 
 <h2>Screenshots:</h2>
-<img src="" alt="Dasher Landing Page">
-<h4>Highlights the landing page of Dasher</h4>
+<h4>Dasher splash page:</h4>
+<img src="images/splashpage.png" alt="Dasher Landing Page">
 <br />
-<img src="" alt="Dasher Dashboard Page">
-<h4>Highlights the user Dashboard</h4>
+<h4>Github User Authentication:</h4>
+<img src="images/dasher.png" alt="Dasher Dashboard Page">
 <br />
+<h4>User Dashboard:</h4>
+<img src="images/authentication.png" alt="Dasher Dashboard Page">

@@ -29,7 +29,7 @@ require('dotenv').config();
 const passport = require('passport');
 var GithubStrategy = require('passport-github2').Strategy;
 app.use(passport.initialize());
-app.use(passport.session()); //use these more widely instead of querying ids
+app.use(passport.session());
 
 passport.serializeUser(function(user, done) {
   // placeholder for custom user serialization
@@ -37,8 +37,6 @@ passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
 
-//route redirection if id does match current user session
-//add admin user settings?
 passport.deserializeUser((user, done)=> {
   db.User.find({where: {id: user.id}}).success(function(user){
   done(null, user);
@@ -53,9 +51,6 @@ passport.use(new GithubStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
     callbackURL: "http://localhost:3000/auth/github/callback"
-    //callbackURL: "http://ec2-52-207-242-113.compute-1.amazonaws.com/auth/github/callback"
-    // callbackURL: "http://dasherpi.com/auth/github/callback"
-    
   
   },
   function(accessToken, refreshToken, profile, done) {
@@ -158,5 +153,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
-

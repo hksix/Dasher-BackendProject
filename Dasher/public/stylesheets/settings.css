@@ -96,7 +96,7 @@ header > div > p{
 .submitbtn {
   color: black;
   background-color: lightgray;
-  width: 75px;
+  width: 120px;
   height: 35px;
   border: none;
   font-size: 1.25em;
@@ -133,4 +133,42 @@ header > div > p{
   height: 25px;
   margin-top: 3px;
   font-size: 1.15em;
+}
+
+.resetbtn {
+  position: relative;
+  background-color:lightgray;
+  border: none;
+  font-size: 20px;
+  color:black;
+  /* padding: 20px; */
+  height: 35px;
+  width: 120px;
+  text-align: center;
+  font-size: 1.25em;
+  font-weight: bold;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.resetbtn:after {
+  content: "";
+  background: #004d4d;;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.resetbtn:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
 }

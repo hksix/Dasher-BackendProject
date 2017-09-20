@@ -52,9 +52,9 @@ passport.deserializeUser((user, done)=> {
 passport.use(new GithubStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    // callbackURL: "http://localhost:3000/auth/github/callback"
+    callbackURL: "http://localhost:3000/auth/github/callback"
     //callbackURL: "http://ec2-52-207-242-113.compute-1.amazonaws.com/auth/github/callback"
-    callbackURL: "http://dasherpi.com/auth/github/callback"
+    // callbackURL: "http://dasherpi.com/auth/github/callback"
     
   
   },

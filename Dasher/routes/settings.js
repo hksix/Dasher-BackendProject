@@ -21,11 +21,35 @@ router.get('/:id', function(req, res, next) {
     });
   });
 
-
+// router.get('/:id', function(req, res, next){
+  // var resetBtn = document.querySelector('input[name="reset"]');
+  // resetBtn.addEventListener('click', resetDB);
+  
+  // function resetDB(){
+  //   console.log('ehy')
+  // }
+  
+// })
 
 router.post('/:id', function(req, res, next) {
-  console.log(req.body);
+  // console.log(req.body);
+  if (req.body.reset){
+    console.log(req.params.id)
+    db.result(`
+    UPDATE dashsettings
+      SET widgetid = x 
+      FROM unnest(ARRAY[Null,2,3,4,5,6,7,8]) x
+      WHERE userid = '${req.params.id}'
+    `).then((result)=>{
+      res.render('settings',{
+        title: 'Dasher | Settings', 
+        id: useridd,
+        user: result,
+        layout:'settingslayout'
+      })
+    })
 
+  }else{
   db.result(`
     UPDATE users 
     SET username = '${req.body.username}',
@@ -41,6 +65,7 @@ router.post('/:id', function(req, res, next) {
         layout:'settingslayout'
       })
     })
+  }
 });
 
 module.exports = router;

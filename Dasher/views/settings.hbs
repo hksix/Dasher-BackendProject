@@ -26,9 +26,12 @@
         Reminder:
             <input class="reminder" type="text" name="reminder" value='{{reminder}}'><br>
         <br>
-
         <input class="submitbtn" type="submit" value="Submit">
     </form>
+    <form class="form" method="post">
+        <input class='submitbtn' type="submit" name='reset' value="Reset">
+        <input type='hidden' value='reset' name="reset"></input>
+    </form> 
     {{/with}}
 </div>
 

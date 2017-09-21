@@ -270,7 +270,7 @@ function sendWidgetIdBack(widgetID,placementID){
 }
 
 function secretMessage(){
-    $('.container').css("background-color", "lightgray")
+    $('.container').css("background-color", "#3c4656")
     var $front = $(".container").children();
     $front.removeClass(); //removes class
     $front.addClass('momentoftruth');

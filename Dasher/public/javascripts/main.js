@@ -261,13 +261,37 @@ function sendWidgetIdBack(widgetID,placementID){
     var pathname = window.location.pathname;
     pathname = pathname.substr(pathname.length -2);
     console.log(pathname);
-    //$.post('http://localhost:3000/dashboard/'+pathname,{widgetID : widgetID, placementID : `${placementID}`}, function(results){
-    $.post('http://ec2-52-207-242-113.compute-1.amazonaws.com/dashboard/'+pathname,{widgetID : widgetID, placementID : `${placementID}`}, function(results){
+    $.post('http://localhost:3000/dashboard/'+pathname,{widgetID : widgetID, placementID : `${placementID}`}, function(results){
+    // $.post('http://ec2-52-207-242-113.compute-1.amazonaws.com/dashboard/'+pathname,{widgetID : widgetID, placementID : `${placementID}`}, function(results){
             
     // console.log(placementID);
         
     });
 }
+
+function secretMessage(){
+    var $front = $(".container").children();
+    $front.removeClass(); //removes class
+    $front.addClass('momentoftruth');
+    $(".momentoftruth").css({"border": "3px solid cyan",
+                            'font-size': '200%',
+                            'text-align': 'center',
+                            'display': 'flex',
+                            'justify-content': 'center', /* align horizontal */
+                            'align-items': 'center' /* align vertical */
+                                });
+    $('#box1').html('Kayleigh');
+    $('#box2').html('Elizabeth');
+    $('#box3').html('Hatch');
+    $('#box4').html('I love you more than life itself');
+    $('#box5').html('I cant see my life without you and I want to spend every waking minute with you');
+    $('#box6').html('Will');
+    $('#box7').html('You');
+    $('#box8').html('Marry me?');
+
+
+}
+secretMessage()
 
 // function defaultSettings(){
 //     var pathname = window.location.pathname;

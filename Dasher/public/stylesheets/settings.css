@@ -101,14 +101,41 @@ header > div > p{
   border: none;
   font-size: 1.25em;
   font-weight: bold;
+  transition: all 0.5s;
+  cursor: pointer;
   margin-left: 40%;
   margin-top: 20px;
 }
+.submitbtn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
 
-.submitbtn:hover {
-  background-color: #004d4d;
+.submitbtn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.submitbtn:hover span {
+  padding-right: 25px;
+}
+
+.submitbtn:hover span:after {
+  opacity: 1;
+  right: 0;
+  /* background-color: #004d4d; */
   color: white;
 }
+/* .submitbtn:hover {
+  background-color: #004d4d;
+  color: white;
+} */
 
 .birthday input {
   width: 50px;

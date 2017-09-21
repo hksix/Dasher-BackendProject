@@ -27,11 +27,11 @@
         Reminder:
             <input class="reminder" type="text" name="reminder" value='{{reminder}}'><br>
         <br>
-        <input class="submitbtn" type="submit" value="Submit">
+        <button class="submitbtn" type="submit" value="Submit"><span>Submit</span></button>
     </form>
     <form class="form" method="post">
-        <input class='submitbtn' type="submit" name='reset' value="Reset">
-        <input type='hidden' value='reset' name="reset"></input>
+        <button class='resetbtn' type="submit" name='reset' value="Reset">Reset</button>     
+        {{!-- <input type='hidden' value='reset' name="reset"> --}}
     </form> 
     {{/with}}
 </div>

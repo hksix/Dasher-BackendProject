@@ -344,3 +344,26 @@ a {
 #box4 > .front > .widget > .fa-plus-circle, #box5 > .front > .widget > .fa-plus-circle {
   font-size: 1.7em;
 }
+
+.secretBtn{
+  width:10px;
+  height: 10px;
+}
+
+.momentoftruth{
+  /* font-size:100px; */
+  font-family:impact;
+  border: 3px solid cyan;
+  font-size: 300%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	
+ -webkit-text-fill-color: transparent;
+ background: -webkit-linear-gradient(transparent, transparent),
+             url(https://media.giphy.com/media/3ohhwNqFMnb7wZgNnq/giphy.gif) repeat;
+ background: -o-linear-gradient(transparent, transparent);
+ -webkit-background-clip: text;
+
+}

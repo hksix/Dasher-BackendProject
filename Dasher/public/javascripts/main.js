@@ -270,16 +270,10 @@ function sendWidgetIdBack(widgetID,placementID){
 }
 
 function secretMessage(){
+    $('.container').css("background-color", "lightgray")
     var $front = $(".container").children();
     $front.removeClass(); //removes class
     $front.addClass('momentoftruth');
-    $(".momentoftruth").css({"border": "3px solid cyan",
-                            'font-size': '200%',
-                            'text-align': 'center',
-                            'display': 'flex',
-                            'justify-content': 'center', /* align horizontal */
-                            'align-items': 'center' /* align vertical */
-                                });
     $('#box1').html('Kayleigh');
     $('#box2').html('Elizabeth');
     $('#box3').html('Hatch');
@@ -288,10 +282,12 @@ function secretMessage(){
     $('#box6').html('Will');
     $('#box7').html('You');
     $('#box8').html('Marry me?');
-
-
 }
 secretMessage()
+
+
+
+
 
 // function defaultSettings(){
 //     var pathname = window.location.pathname;

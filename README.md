@@ -38,3 +38,5 @@ Contributions: User authentication, Widget creation, Saving user preferences, Ex
 ## Upcoming goals:
 * Casting the dashboard behind a one-way mirror via Rasberry Pi
 * Adding React-based widgets 
+
+![alt text](maxresdefault.jpg "Mirror Demo")

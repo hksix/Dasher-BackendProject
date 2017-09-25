@@ -10,7 +10,7 @@ Dasher is a Node.js/Express server-rendered, customizable dashboard application.
 ## Built by:
 
 [Stephanie Asmar](https://github.com/stephanieasmar)  
-Contributions: Express routing, PostgreSQL database initiation, UI design
+Contributions: Express routing, PostgreSQL database management, UI/UX design
 
 [Jennifer Li Johnson](https://github.com/jenlij)  
 Contributions: Amazon Web Services EC2 DevOps, Layout implementation, Widget creation, Querying user preferences

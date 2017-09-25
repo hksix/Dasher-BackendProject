@@ -27,6 +27,8 @@ Contributions: User authentication, Widget creation, Saving user preferences, Ex
 * Passport user authentication
 * JavaScript/jQuery
 * CSS
+* Nginx
+* Amazon Web Services Elastic Compute Cloud
 * React (coming soon)
 
 ![alt text](dasher.png "Dashboard")

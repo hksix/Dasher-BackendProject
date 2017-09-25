@@ -2,6 +2,7 @@
 
 ![alt text](splashpage.png "Splash image")
 
+[Live Demo](https://www.dasherpi.com)
 
 ## Overview:
 Dasher is a Node.js/Express server-rendered, customizable dashboard application. Handlebars partials were used to render the front-end views. The user can login using GitHub authentication. Dasher offers the user a choice of widgets (i.e. weather, calendar, news) that they can customize and save to their preferences. Settings are stored in a PostgreSQL database. Additions will be made in React.    
@@ -28,6 +29,8 @@ Contributions: User authentication, Widget creation, Saving user preferences, Ex
 * CSS
 * React (coming soon)
 
+![alt text](dasher.png "Dashboard")
+
 ## (Minimum Viable Product):
 * A simple, customizable dashboard/personal assistant
 * User login with GitHub authentication
@@ -46,10 +49,6 @@ Contributions: User authentication, Widget creation, Saving user preferences, Ex
 <h4>The code below showcases the scripts used to save user settings to the database:</h4>
 <img src="images/ReadMe Snippets/UserSettings.png" alt="User Settings Code Snippet">
 <br/>
-
-<h2>Live Demo</h2>
-https://www.dasherpi.com
-</br>
 
 <h2>Screenshots:</h2>
 <h4>Dasher splash page:</h4>

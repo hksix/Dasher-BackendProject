@@ -31,31 +31,10 @@ Contributions: User authentication, Widget creation, Saving user preferences, Ex
 
 ![alt text](dasher.png "Dashboard")
 
-## (Minimum Viable Product):
+## Minimum Viable Product:
 * A simple, customizable dashboard/personal assistant
 * User login with GitHub authentication
 
 ## Upcoming goals:
 * Casting the dashboard behind a one-way mirror via Rasberry Pi
 * Adding React-based widgets 
-
-<h2><u>Code Snippets:</u></h2>
-<h4>The code below showcases the Github Authorization process:</h4>
-<img src="images/ReadMe Snippets/Github-OAuth.png" alt="Github-OAuth Code Snippet">
-<br/>
-<h4>The code below showcases the scripts use to create the main dashboard routes:</h4>
-<img src="images/ReadMe Snippets/Dashboard.png" alt="Dashboard Code Snippet">
-<br/>
-<h4>The code below showcases the scripts used to save user settings to the database:</h4>
-<img src="images/ReadMe Snippets/UserSettings.png" alt="User Settings Code Snippet">
-<br/>
-
-<h2>Screenshots:</h2>
-<h4>Dasher splash page:</h4>
-<img src="images/splashpage.png" alt="Dasher Landing Page">
-<br />
-<h4>Github User Authentication:</h4>
-<img src="images/dasher.png" alt="Dasher Dashboard Page">
-<br />
-<h4>User Dashboard:</h4>
-<img src="images/authentication.png" alt="Dasher Dashboard Page">

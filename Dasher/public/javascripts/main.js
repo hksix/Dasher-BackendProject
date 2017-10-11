@@ -262,7 +262,8 @@ function sendWidgetIdBack(widgetID,placementID){
     pathname = pathname.substr(pathname.length -2);
     console.log(pathname);
     //$.post('http://localhost:3000/dashboard/'+pathname,{widgetID : widgetID, placementID : `${placementID}`}, function(results){
-    $.post('http://ec2-52-207-242-113.compute-1.amazonaws.com/dashboard/'+pathname,{widgetID : widgetID, placementID : `${placementID}`}, function(results){
+    // $.post('http://ec2-52-207-242-113.compute-1.amazonaws.com/dashboard/'+pathname,{widgetID : widgetID, placementID : `${placementID}`}, function(results){
+        $.post('http://dasherpi.com/dashboard/'+pathname,{widgetID : widgetID, placementID : `${placementID}`}, function(results){
             
     // console.log(placementID);
         

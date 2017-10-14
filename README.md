@@ -5,7 +5,7 @@
 [Live Demo](https://www.dasherpi.com)
 
 ## Overview:
-Dasher is a Node.js/Express server-rendered, customizable dashboard application. Handlebars partials were used to render the front-end views. The user can login using GitHub authentication. Dasher offers the user a choice of widgets (i.e. weather, calendar, news) that they can customize and save to their preferences. Settings are stored in a PostgreSQL database. Additions will be made in React.    
+Dasher is a Node.js/Express server-rendered, customizable dashboard application for use as a Raspberry Pi-enabled internet of things 'magic' mirror personal assistant . Handlebars partials were used to render the front-end views. The user can login using GitHub authentication. Dasher offers the user a choice of widgets (i.e. weather, calendar, news) that they can customize and save to their preferences. Settings are stored in a PostgreSQL database. Additions will be made in React.    
 
 ## Built by:
 
@@ -30,6 +30,7 @@ Contributions: User authentication, Widget creation, Saving user preferences, Ex
 * Nginx
 * Amazon Web Services Elastic Compute Cloud
 * React (coming soon)
+* Raspberry Pi
 
 ![alt text](dasher.png "Dashboard")
 
